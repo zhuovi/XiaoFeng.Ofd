@@ -33,12 +33,23 @@
 	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
 	  <DelaySign>False</DelaySign>
 	  <IsPackable>true</IsPackable>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 	<ItemGroup>
 		<None Include="README.md" Pack="true" PackagePath="\" />
 		<None Include="LICENSE" Pack="true" PackagePath="\" />
 		<None Include="x.png" Pack="true" PackagePath="\" />
 		<None Include="XiaoFeng.Ofd.snk" Pack="true" PackagePath="\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Doc\" />
+	  <Folder Include="Text\" />
+	  <Folder Include="Image\" />
+	  <Folder Include="Signatures\" />
+	  <Folder Include="Fonts\" />
+	  <Folder Include="Resources\" />
+	  <Folder Include="Pages\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\XiaoFeng\XiaoFeng.csproj" />
 	</ItemGroup>
 </Project>

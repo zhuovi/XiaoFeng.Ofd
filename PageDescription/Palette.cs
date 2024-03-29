@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
+using XiaoFeng.Ofd.Attributes;
+using XiaoFeng.Ofd.BaseType;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -8,24 +11,37 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 19:40:26                            *
+*  Create Time : 2024-03-26 21:18:49                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
-namespace XiaoFeng.Ofd.Enum
+namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 标题栏显示模式
+    /// 调色板
     /// </summary>
-    public enum TabDisplay
+    public class Palette
     {
+        #region 构造器
         /// <summary>
-        /// 呈现元数据中的Title属性
+        /// 无参构造器
         /// </summary>
-        DocTitle = 0,
+        public Palette()
+        {
+
+        }
+        #endregion
+
+        #region 属性
         /// <summary>
-        /// 文件名称
+        /// 调色板中预定义颜色，调色板中颜色的索引编号从0开始
         /// </summary>
-        FileName = 1
+        public STArray CV { get; set; }
+
+        #endregion
+
+        #region 方法
+
+        #endregion
     }
 }

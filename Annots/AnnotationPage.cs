@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
+using XiaoFeng.Ofd.Attributes;
+using XiaoFeng.Ofd.BaseType;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -8,24 +11,42 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 19:40:26                            *
+*  Create Time : 2024-03-27 16:04:40                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
-namespace XiaoFeng.Ofd.Enum
+namespace XiaoFeng.Ofd.Annots
 {
     /// <summary>
-    /// 标题栏显示模式
+    /// 注释所在的页
     /// </summary>
-    public enum TabDisplay
+    public class AnnotationPage
     {
+        #region 构造器
         /// <summary>
-        /// 呈现元数据中的Title属性
+        /// 无参构造器
         /// </summary>
-        DocTitle = 0,
+        public AnnotationPage()
+        {
+
+        }
+        #endregion
+
+        #region 属性
         /// <summary>
-        /// 文件名称
+        /// 引用注释所在的页面的标识
         /// </summary>
-        FileName = 1
+        [XmlAttribute]
+        [Required]
+        public STRefID PageID { get; set; }
+        /// <summary>
+        /// 指向包内的分页注释文件
+        /// </summary>
+        public Location FileLoc { get; set; }
+        #endregion
+
+        #region 方法
+
+        #endregion
     }
 }

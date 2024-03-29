@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
+using XiaoFeng.Ofd.Attributes;
+using XiaoFeng.Ofd.BaseType;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -8,24 +11,44 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 19:40:26                            *
+*  Create Time : 2024-03-27 12:42:05                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
-namespace XiaoFeng.Ofd.Enum
+namespace XiaoFeng.Ofd.Graph
 {
     /// <summary>
-    /// 标题栏显示模式
+    /// 二次贝塞尔曲线
     /// </summary>
-    public enum TabDisplay
+    public class QuadraticBezier
     {
+        #region 构造器
         /// <summary>
-        /// 呈现元数据中的Title属性
+        /// 无参构造器
         /// </summary>
-        DocTitle = 0,
+        public QuadraticBezier()
+        {
+
+        }
+        #endregion
+
+        #region 属性
         /// <summary>
-        /// 文件名称
+        /// 二次贝塞尔曲线的控制点
         /// </summary>
-        FileName = 1
+        [XmlAttribute]
+        [Required]
+        public Position Point1 { get; set; }
+        /// <summary>
+        /// 二次贝塞尔曲线的结束点，下一路径的起始点
+        /// </summary>
+        [XmlAttribute]
+        [Required]
+        public Position Point2 { get; set; }
+        #endregion
+
+        #region 方法
+
+        #endregion
     }
 }

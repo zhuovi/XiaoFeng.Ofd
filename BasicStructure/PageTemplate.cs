@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
+using XiaoFeng.Ofd.Attributes;
+using XiaoFeng.Ofd.BaseType;
+using XiaoFeng.Ofd.Enum;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -8,24 +12,44 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 19:40:26                            *
+*  Create Time : 2024-03-26 19:58:43                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
-namespace XiaoFeng.Ofd.Enum
+namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 标题栏显示模式
+    /// 模板页配置
     /// </summary>
-    public enum TabDisplay
+    public class PageTemplate
     {
+        #region 构造器
         /// <summary>
-        /// 呈现元数据中的Title属性
+        /// 无参构造器
         /// </summary>
-        DocTitle = 0,
+        public PageTemplate()
+        {
+
+        }
+        #endregion
+
+        #region 属性
         /// <summary>
-        /// 文件名称
+        /// 模板ID
         /// </summary>
-        FileName = 1
+        [XmlAttribute]
+        [Required]
+        public STRefID TemplateID { get; set; }
+        /// <summary>
+        /// 呈现顺序
+        /// </summary>
+        [XmlAttribute]
+        [Required]
+        public LayerType ZOrder { get; set; } = LayerType.Background;
+        #endregion
+
+        #region 方法
+
+        #endregion
     }
 }

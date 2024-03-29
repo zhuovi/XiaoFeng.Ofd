@@ -8,24 +8,32 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 19:40:26                            *
+*  Create Time : 2024-03-27 16:01:01                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
 namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
-    /// 标题栏显示模式
+    /// 放映参数
     /// </summary>
-    public enum TabDisplay
+    public enum OperatorType
     {
         /// <summary>
-        /// 呈现元数据中的Title属性
+        /// 播放
         /// </summary>
-        DocTitle = 0,
+        Play,
         /// <summary>
-        /// 文件名称
+        /// 停止
         /// </summary>
-        FileName = 1
+        Stop,
+        /// <summary>
+        /// 暂停
+        /// </summary>
+        Pause,
+        /// <summary>
+        /// 继续
+        /// </summary>
+        Resume
     }
 }

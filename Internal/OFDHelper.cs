@@ -8,24 +8,28 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 19:40:26                            *
+*  Create Time : 2024-03-26 12:05:11                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
-namespace XiaoFeng.Ofd.Enum
+namespace XiaoFeng.Ofd.Internal
 {
     /// <summary>
-    /// 标题栏显示模式
+    /// 公用帮助类
     /// </summary>
-    public enum TabDisplay
+    public static class OFDHelper
     {
         /// <summary>
-        /// 呈现元数据中的Title属性
+        /// 文档命名空间
         /// </summary>
-        DocTitle = 0,
+        public const string NAMESAPCE_URI = "http://www.ofdspec.org/2016";
         /// <summary>
-        /// 文件名称
+        /// 文档标识 
         /// </summary>
-        FileName = 1
+        public const string NAMESAPCE_FLAG = "ofd";
+        /// <summary>
+        /// 入口文件
+        /// </summary>
+        public const string MAIN_FILE = "OFD.xml";
     }
 }

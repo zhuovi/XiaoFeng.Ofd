@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using XiaoFeng.Ofd.BaseType;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -8,24 +9,36 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 19:40:26                            *
+*  Create Time : 2024-03-28 16:26:58                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
-namespace XiaoFeng.Ofd.Enum
+namespace XiaoFeng.Ofd.Signatures
 {
     /// <summary>
-    /// 标题栏显示模式
+    /// 电子印章信息
     /// </summary>
-    public enum TabDisplay
+    public class Seal
     {
+        #region 构造器
         /// <summary>
-        /// 呈现元数据中的Title属性
+        /// 无参构造器
         /// </summary>
-        DocTitle = 0,
+        public Seal()
+        {
+
+        }
+        #endregion
+
+        #region 属性
         /// <summary>
-        /// 文件名称
+        /// 指向包内的安全电子印章文件，遵循密码领域的相关规范
         /// </summary>
-        FileName = 1
+        public Location BaseLoc { get; set; }
+        #endregion
+
+        #region 方法
+
+        #endregion
     }
 }

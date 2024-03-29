@@ -8,24 +8,36 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 19:40:26                            *
+*  Create Time : 2024-03-27 14:45:13                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
 namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
-    /// 标题栏显示模式
+    /// 目标类型
     /// </summary>
-    public enum TabDisplay
+    public enum DestType
     {
         /// <summary>
-        /// 呈现元数据中的Title属性
+        /// 目标区域由左上角位置(Left,Top)以及页面绽放比例(Zoom)确定;
         /// </summary>
-        DocTitle = 0,
+        XYZ,
         /// <summary>
-        /// 文件名称
+        /// 适合整个窗口区域
         /// </summary>
-        FileName = 1
+        Fit,
+        /// <summary>
+        /// 适合窗口宽度，目标区域仅由 Top 确定;
+        /// </summary>
+        FitH,
+        /// <summary>
+        /// 适合窗口高度，目标区域仅由 Left 确定;
+        /// </summary>
+        FitV,
+        /// <summary>
+        /// 适合窗口内的目标区域，目标不区域为(Left、Top、Right、Bottom)所确定的矩形区域
+        /// </summary>
+        FitR
     }
 }

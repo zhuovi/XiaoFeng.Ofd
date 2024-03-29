@@ -8,24 +8,20 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 19:40:26                            *
+*  Create Time : 2024-03-27 13:53:17                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
 namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
-    /// 标题栏显示模式
+    /// 字型编码
     /// </summary>
-    public enum TabDisplay
+    public enum FontCharset
     {
-        /// <summary>
-        /// 呈现元数据中的Title属性
-        /// </summary>
-        DocTitle = 0,
-        /// <summary>
-        /// 文件名称
-        /// </summary>
-        FileName = 1
+        unicode = 0,
+        symbol = 1,
+        prc = 2,
+        big5 = 3,
     }
 }

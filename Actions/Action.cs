@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.Enum;
 using XiaoFeng.Ofd.Graph;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -19,7 +20,8 @@ using XiaoFeng.Ofd.Graph;
 namespace XiaoFeng.Ofd.Actions
 {
     /// <summary>
-    /// 动作类型
+    /// <para>动作类型</para>
+    /// <para>详情说明 见图 <see langword="73"/> ，见表 <see langword="51"/> </para>
     /// </summary>
     public class Action
     {
@@ -39,6 +41,7 @@ namespace XiaoFeng.Ofd.Actions
         /// </summary>
         [XmlAttribute]
         [Required]
+        [XmlConverter(typeof(StringEnumConverter))]
         public ActionEvent Event { get; set; }
         /// <summary>
         /// 指定多个复杂区域为该链接对象的启动区域，不出现时以所在图元或页面的外接矩形作为启动区域

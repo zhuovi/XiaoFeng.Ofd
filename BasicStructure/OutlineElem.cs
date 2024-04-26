@@ -4,6 +4,7 @@ using System.Text;
 using System.Xml.Serialization;
 using XiaoFeng.Ofd.Actions;
 using XiaoFeng.Ofd.Attributes;
+using Action = XiaoFeng.Ofd.Actions.Action;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -18,7 +19,8 @@ using XiaoFeng.Ofd.Attributes;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 大纲根节点
+    /// <para>大纲根节点</para>
+    /// <para>详情说明 见图 <see langword="19"/> ，见表 <see langword="17"/> </para>
     /// </summary>
     public class OutlineElem
     {

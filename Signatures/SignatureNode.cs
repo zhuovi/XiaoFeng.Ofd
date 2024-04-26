@@ -19,7 +19,8 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.Signatures
 {
     /// <summary>
-    /// 签名列表节点
+    /// <para>签名列表节点</para>
+    /// <para>详情说明 见图 <see langword="85"/> ，见表 <see langword="66"/> </para>
     /// </summary>
     public class SignatureNode
     {

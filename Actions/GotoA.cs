@@ -18,7 +18,9 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Actions
 {
     /// <summary>
-    /// 附件动作
+    /// <para>附件动作</para>
+    /// <para>附件动作表明打开当前文档内的一个附件</para>
+    /// <para>详情说明 见图 <see langword="76"/> ，见表 <see langword="55"/> </para>
     /// </summary>
     public class GotoA
     {

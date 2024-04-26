@@ -19,7 +19,8 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 模板页结构
+    /// <para>模板页结构</para>
+    /// <para>详情说明 见图 <see langword="14"/> ，见表 <see langword="13"/> </para>
     /// </summary>
     public class TemplatePage
     {

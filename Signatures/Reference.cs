@@ -18,7 +18,8 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Signatures
 {
     /// <summary>
-    /// 一个文件的摘要节点
+    /// <para>一个文件的摘要节点</para>
+    /// <para>详情说明 见图 <see langword="87"/> ，见表 <see langword="68"/> </para>
     /// </summary>
     public class Reference
     {

@@ -15,7 +15,8 @@ using System.Text;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 文档权限声明
+    /// <para>文档权限声明</para>
+    /// <para>详情说明 见图 <see langword="9"/> ，见表 <see langword="8"/> </para>
     /// </summary>
     public class Permission
     {

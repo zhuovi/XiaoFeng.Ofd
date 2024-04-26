@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using XiaoFeng.Ofd.BaseType;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -16,7 +17,8 @@ using System.Xml.Serialization;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 页面块结构
+    /// <para>页面块结构</para>
+    /// <para>详情说明 见图 <see langword="17"/> ，见表 <see langword="16"/> </para>
     /// </summary>
     public class PageBlock : IPageBlock
     {
@@ -31,6 +33,11 @@ namespace XiaoFeng.Ofd.BasicStructure
         #endregion
 
         #region 属性
+        /// <summary>
+        /// ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
         /// <summary>
         /// 页面块
         /// </summary>

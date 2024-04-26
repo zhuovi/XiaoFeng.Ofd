@@ -18,7 +18,9 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Actions
 {
     /// <summary>
-    /// 释放音频动作
+    /// <para>释放音频动作</para>
+    /// <para>Sound 动作表明播放一段音频。</para>
+    /// <para>详情说明 见图 <see langword="78"/> ，见表 <see langword="57"/> </para>
     /// </summary>
     public class Sound
     {

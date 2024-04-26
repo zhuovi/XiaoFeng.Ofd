@@ -18,7 +18,8 @@ using XiaoFeng.Ofd.Attributes;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 书签
+    /// <para>书签</para>
+    /// <para>详情说明 见图 <see langword="11"/> ，见表 <see langword="10"/> </para>
     /// </summary>
     public class Bookmark
     {

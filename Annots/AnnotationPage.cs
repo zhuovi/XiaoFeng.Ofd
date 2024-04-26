@@ -18,7 +18,8 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Annots
 {
     /// <summary>
-    /// 注释所在的页
+    /// <para>注释所在的页</para>
+    /// <para>详情说明 见图 <see langword="80"/> ，见表 <see langword="60"/> </para>
     /// </summary>
     public class AnnotationPage
     {

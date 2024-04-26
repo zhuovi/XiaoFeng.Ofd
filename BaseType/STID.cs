@@ -17,7 +17,7 @@ namespace XiaoFeng.Ofd.BaseType
     /// <summary>
     /// ST_ID类型
     /// </summary>
-    public class STID
+    public class STID : IValue<STID>,IEquatable<STID>
     {
         #region 构造器
         /// <summary>
@@ -58,6 +58,61 @@ namespace XiaoFeng.Ofd.BaseType
         {
             return Value.ToString();
         }
+        ///<inheritdoc/>
+        public object Parse(string value)
+        {
+            return new STID(value);
+        }
+        ///<inheritdoc/>
+        public bool TryParse(string value, out STID result)
+        {
+            result = null;
+            if (value.StartsWith("-") || !value.IsNumberic()) return false;
+            result = new STID(value);
+            return true;
+        }
+        ///<inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.Value.GetHashCode();
+        }
+        /// <summary>
+        /// 两个对象是否相等
+        /// </summary>
+        /// <param name="other">另一个对象 <see cref="STID"/> 。</param>
+        /// <returns></returns>
+        public bool Equals(STID other)
+        {
+            return this == other;
+        }
+        /// <summary>
+        /// 两个对象是否相等
+        /// </summary>
+        /// <param name="obj">另一个对象 <see cref="STID"/> 。</param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            return obj is STID id && this == id;
+        }
+        /// <summary>
+        /// 两个对象是否相等
+        /// </summary>
+        /// <param name="left">一个对象 <see cref="STID"/> 。</param>
+        /// <param name="right">一个对象 <see cref="STID"/> 。</param>
+        /// <returns></returns>
+        public static bool operator ==(STID left,STID right)
+        {
+            if (left == null && right == null) return true;
+            if (left == null || right == null) return false;
+            return left.Value == right.Value;
+        }
+        /// <summary>
+        /// 两个对象是否不相等
+        /// </summary>
+        /// <param name="left">一个对象 <see cref="STID"/> 。</param>
+        /// <param name="right">一个对象 <see cref="STID"/> 。</param>
+        /// <returns></returns>
+        public static bool operator !=(STID left, STID right) => !(left == right);
         /// <summary>
         /// 显示转换
         /// </summary>
@@ -89,6 +144,80 @@ namespace XiaoFeng.Ofd.BaseType
         public static implicit operator STID(uint v)
         {
             return new STID(v);
+        }
+        /// <summary>
+        /// 显示转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static explicit operator int(STID v)
+        {
+            return (int)v.Value;
+        }
+        /// <summary>
+        /// 隐式转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static implicit operator STID(int v)
+        {
+            return new STID((uint)v);
+        }
+        /// <summary>
+        /// ID增加值
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <param name="v">值</param>
+        /// <returns></returns>
+        public static STID operator +(STID id, uint v)
+        {
+            id.Value += v;
+            return id;
+        }
+        /// <summary>
+        /// ID减少值
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <param name="v">值</param>
+        /// <returns></returns>
+        public static STID operator -(STID id,uint v)
+        {
+            id.Value -= v;
+            return id;
+        }
+        /// <summary>
+        /// ID 自动加一
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <returns></returns>
+        public static STID operator ++(STID id)
+        {
+            id.Value++;
+            return id;
+        }
+        /// <summary>
+        /// ID 自动减一
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <returns></returns>
+        public static STID operator --(STID id)
+        {
+            id.Value--;
+            return id;
+        }
+        /// <summary>
+        /// 显示转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static explicit operator STRefID(STID v)
+        {
+            return new STRefID(v.Value);
+        }
+        /// <summary>
+        /// 隐式转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static implicit operator STID(STRefID v)
+        {
+            return new STID(v.ToString().ToCast<uint>());
         }
         #endregion
     }

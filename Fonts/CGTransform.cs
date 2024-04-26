@@ -18,7 +18,9 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Fonts
 {
     /// <summary>
-    /// 字型变换
+    /// <para>字型变换</para>
+    /// <para>当存在字形变换时.TextCode对象中使用字形变换节点(CGTransform)描述字符编码和字形索引之间的关系</para>
+    /// <para>详情说明 见图 <see langword="66"/> ，见表 <see langword="48"/> </para>
     /// </summary>
     public class CGTransform
     {

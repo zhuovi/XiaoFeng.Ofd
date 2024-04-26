@@ -19,6 +19,7 @@ namespace XiaoFeng.Ofd.Graph
 {
     /// <summary>
     /// 圆弧
+    /// <para>详情说明 见图 <see langword="56"/> ，见表 <see langword="42"/> </para>
     /// </summary>
     public class Arc
     {

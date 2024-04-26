@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
@@ -18,7 +19,9 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Signatures
 {
     /// <summary>
-    /// 签名列表
+    /// <para>签名列表</para>
+    /// <para>签名列表文件的入口点在 7.4主入口中定义。签名列表文件中可以包含多个签名(例如联合发文等情况),见图85。当允许下次继续添加签名时，该文件不会被包含到本次签名的保护义件列表(References)中，</para>
+    /// <para>详情说明 见图 <see langword="85"/> ，见表 <see langword="66"/> </para>
     /// </summary>
     [Required]
     public class Signatures

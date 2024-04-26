@@ -18,7 +18,9 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 径向渐变
+    /// <para>径向渐变</para>
+    /// <para>径向渐变定义了两个离心率和倾斜角度均相同的椭圆.并在椭圆边缘连线区域内进行渐变绘制的方法。具体算法是，先由起始点椭圆中心点开始绘制一个起始点颜色的空心椭圆，随后沿着中心点连线不断绘制离心率与倾斜角度相同的空心椭圆，颜色由起始点颜色逐渐变为结束点颜色，椭圆大小由起始点椭圆逐渐变为结束点椭圆。</para>
+    /// <para>详情说明 见图 <see langword="35"/> ，见表 <see langword="30"/> </para>
     /// </summary>
     public class RadialShd
     {

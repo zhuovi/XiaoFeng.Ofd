@@ -19,7 +19,8 @@ using XiaoFeng.Ofd.BasicStructure;
 namespace XiaoFeng.Ofd.CompositeObject
 {
     /// <summary>
-    /// 矢量图像
+    /// <para>矢量图像</para>
+    /// <para>详情说明 见图 <see langword="72"/> ，见表 <see langword="50"/> </para>
     /// </summary>
     public class VectorG
     {
@@ -35,7 +36,12 @@ namespace XiaoFeng.Ofd.CompositeObject
 
         #region 属性
         /// <summary>
-        /// 矢量图像的宽度，超出部分作裁剪处理
+        /// 矢量图像ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
+        /// <summary>
+        /// 的宽度，超出部分作裁剪处理
         /// </summary>
         [XmlAttribute]
         [Required]

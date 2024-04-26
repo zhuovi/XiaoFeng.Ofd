@@ -18,7 +18,9 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Graph
 {
     /// <summary>
-    /// 线段
+    /// <para>线段</para>
+    /// <para></para>
+    /// <para>详情说明 见图 <see langword="51"/> ，见表 <see langword="39"/> </para>
     /// </summary>
     public class Line
     {

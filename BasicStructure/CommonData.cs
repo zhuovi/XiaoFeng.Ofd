@@ -17,7 +17,8 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 文件公共数据
+    /// <para>文件公共数据</para>
+    /// <para>详情说明 见图 <see langword="6"/> ，见表 <see langword="6"/> </para>
     /// </summary>
     public class CommonData
     {
@@ -27,7 +28,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// </summary>
         public CommonData()
         {
-
+            this.MaxUnitID = 1U;
         }
         #endregion
 
@@ -45,11 +46,11 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <summary>
         /// 公共资源序列，每个节点指向OFD包内一个资源描述文档，资源部分的描述见7.9，字体和颜色空间等宜在公共资源文件中描述
         /// </summary>
-        public Location PublicRes { get; set; }
+        public Location PublicRes { get; set; } = new Location("PublicRes.xml");
         /// <summary>
         /// 文档资源序列，每个节点指向OFD包内一个资源描述文档，资源部分的描述见7.9，绘制参数、多媒体和矢量图像等宜在文档资源文件中描述  
         /// </summary>
-        public Location DocumentRes { get; set; }
+        public Location DocumentRes { get; set; } = new Location("DocumentRes.xml");
         /// <summary>
         /// 模板页序列，为一系列模板页的集合，模板页内容结构和普通 页相同，描述见7.7
         /// </summary>

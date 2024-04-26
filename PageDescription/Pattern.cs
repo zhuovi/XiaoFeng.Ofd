@@ -20,7 +20,9 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 底纹
+    /// <para>底纹</para>
+    /// <para>底纹是复杂颜色的一种，用于图形和文字的填充以及勾边处理。</para>
+    /// <para>详情说明 见图 <see langword="26"/> ，见表 <see langword="28"/> </para>
     /// </summary>
     public class Pattern
     {

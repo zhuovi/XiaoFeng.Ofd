@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -19,7 +20,8 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 颜色空间
+    /// <para>颜色空间</para>
+    /// <para>详情说明 见图 <see langword="24"/> ，见表 <see langword="25"/> </para>
     /// </summary>
     public class ColorSpace
     {
@@ -35,10 +37,16 @@ namespace XiaoFeng.Ofd.PageDescription
 
         #region 属性
         /// <summary>
-        /// 颜色空间的类型
+        /// 颜色空间ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
+        /// <summary>
+        /// 的类型
         /// </summary>
         [XmlAttribute]
         [Required]
+        [XmlConverter(typeof(StringEnumConverter))]
         public ColorSpaceType Type { get; set; }
         /// <summary>
         /// 每个颜色通道所使用的位数，有效取值为1，2，4，8，16。默认为8

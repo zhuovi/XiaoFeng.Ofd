@@ -19,7 +19,9 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 轴向渐变
+    /// <para>轴向渐变</para>
+    /// <para>在轴向渐变中，颜色渐变沿着一条指定的轴线方向进行，轴线由起始点和结束点决定，与这条轴线垂直的直线上的点颜色相同。</para>
+    /// <para>详情说明 见图 <see langword="30"/> ，见表 <see langword="29"/> </para>
     /// </summary>
     public class AxialShd
     {

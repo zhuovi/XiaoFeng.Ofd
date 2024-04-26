@@ -18,7 +18,9 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Graph
 {
     /// <summary>
-    /// 移动
+    /// <para>移动</para>
+    /// <para>移动节点用于表示移动到新的绘制点指令</para>
+    /// <para>详情说明 见图 <see langword="50"/> ，见表 <see langword="38"/> </para>
     /// </summary>
     public class Move
     {

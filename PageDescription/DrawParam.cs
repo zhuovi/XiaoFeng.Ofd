@@ -18,7 +18,8 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 绘制参数
+    /// <para>绘制参数</para>
+    /// <para>详情说明 见图 <see langword="22"/> ，见表 <see langword="21"/> </para>
     /// </summary>
     public class DrawParam
     {
@@ -34,7 +35,12 @@ namespace XiaoFeng.Ofd.PageDescription
 
         #region 属性
         /// <summary>
-        /// 基础绘制参数，引用资源文件中的绘制参数的标识
+        /// 基础绘制ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
+        /// <summary>
+        /// 参数，引用资源文件中的绘制参数的标识
         /// </summary>
         [XmlAttribute]
         public uint Relative { get; set; }

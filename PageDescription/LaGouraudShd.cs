@@ -17,7 +17,9 @@ using XiaoFeng.Ofd.Attributes;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 网络高洛德渐变
+    /// <para>网络高洛德渐变</para>
+    /// <para>网格高洛德渐变是高洛德渐变的一种特殊形式，其允许定义4个以上的控制点，按照每行固定的网    格数(VerticesPerRow)形成若十行列，相邻的4个控制点定义一个网格单元，在一个网格单元内 EdgeFlog 固定为1, 网格单元及多个单元组成网格区城的规则如图42所示</para>
+    /// <para>详情说明 见图 <see langword="43"/> ，见表 <see langword="32"/> </para>
     /// </summary>
     public class LaGouraudShd : GouraudShd
     {

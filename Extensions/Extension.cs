@@ -18,7 +18,8 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Extensions
 {
     /// <summary>
-    /// 扩展信息
+    /// <para>扩展信息</para>
+    /// <para>详情说明 见图 <see langword="84"/> ，见表 <see langword="65"/> </para>
     /// </summary>
     public class Extension
     {

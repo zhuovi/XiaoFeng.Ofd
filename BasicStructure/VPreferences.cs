@@ -16,7 +16,8 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 文档视图首选项
+    /// <para>文档视图首选项</para>
+    /// <para>详情说明 见图 <see langword="10"/> ，见表 <see langword="9"/> </para>
     /// </summary>
     public class VPreferences
     {

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
+using XiaoFeng.Ofd.Internal;
 using XiaoFeng.Ofd.Versions;
+using Version = XiaoFeng.Ofd.Versions.Version;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -18,7 +20,9 @@ using XiaoFeng.Ofd.Versions;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 文件对象入口，可以存在多个，以便在一个文档中包含多个版式文档
+    /// <para>版式文档</para>
+    /// <para>文件对象入口，可以存在多个，以便在一个文档中包含多个版式文档</para>
+    /// <para>详情说明 见图 <see langword="3"/> ，见表 <see langword="3"/> </para>
     /// </summary>
     public class DocBody
     {

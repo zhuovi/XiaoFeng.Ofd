@@ -19,6 +19,7 @@ namespace XiaoFeng.Ofd.Graph
 {
     /// <summary>
     /// 三次贝塞尔曲线
+    /// <para>详情说明 见图 <see langword="53"/> ，见表 <see langword="41"/> </para>
     /// </summary>
     public class CubicBezier
     {

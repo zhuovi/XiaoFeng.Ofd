@@ -16,7 +16,9 @@ using System.Xml.Serialization;
 namespace XiaoFeng.Ofd.CustomTags
 {
     /// <summary>
-    /// 自定义标引列表
+    /// <para>自定义标引列表</para>
+    /// <para>外部系统或用户可以添加自定义的标记和信息，从而达到与其他系统、数据进行交互的日的并扩展应用。一个文档可以带有多个自定义标引。</para>
+    /// <para>详情说明 见图 <see langword="82"/> ，见表 <see langword="63"/> </para>
     /// </summary>
     public class CustomTags
     {

@@ -18,7 +18,9 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Signatures
 {
     /// <summary>
-    /// 签名的外观
+    /// <para>签名的外观</para>
+    /// <para>一个数字签名可以跟一个或多个外观描述关联，也可以不关联任何外观，其关联方式如图88所示。</para>
+    /// <para>详情说明 见图 <see langword="88"/> ，见表 <see langword="69"/> </para>
     /// </summary>
     public class StampAnnot
     {

@@ -15,7 +15,8 @@ using System.Text;
 namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
-    /// 注释类型
+    /// <para>注释类型</para>
+    /// <para>详情说明 见表 <see langword="62"/> </para>
     /// </summary>
     public enum AnnotType
     {

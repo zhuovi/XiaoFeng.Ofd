@@ -16,7 +16,9 @@ using System.Xml.Serialization;
 namespace XiaoFeng.Ofd.Extensions
 {
     /// <summary>
-    /// 扩展信息列表
+    /// <para>扩展信息列表</para>
+    /// <para>扩展信息列表的入口点在7.5文档根节点中定义。扩展信息列表文件的根节点名为 Extensions,其下由0到多个扩展信息节点(Extension)组成</para>
+    /// <para>详情说明 见图 <see langword="83"/> ，见表 <see langword="64"/> </para>
     /// </summary>
     public class Extensions
     {

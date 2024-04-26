@@ -4,6 +4,7 @@ using System.Text;
 using System.Xml.Serialization;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -18,7 +19,8 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 文件元数据属性模型
+    /// 文件元数据
+    /// <para>详情说明 见图 <see langword="4"/> ，见表 <see langword="4"/> </para>
     /// </summary>
     public class DocInfo
     {
@@ -56,11 +58,13 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <summary>
         /// 文档创建日期
         /// </summary>
+        [XmlValueFormat("yyyy-MM-dd")]
         public DateTime CreateDate { get; set; }
         /// <summary>
         /// 文档最近修改日期
         /// </summary>
-        public DateTime ModDate { get; set; }
+        [XmlValueFormat("yyyy-MM-dd")] 
+        public DateTime? ModDate { get; set; }
         /// <summary>
         /// 文档分类
         /// </summary>
@@ -72,7 +76,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <summary>
         /// 关键词集合,每一个关键词用一个"Keyword"子节点来表达
         /// </summary>
-        [XmlArray("Keywrods")]
+        [XmlArray("Keywords")]
         [XmlArrayItem("Keyword")]
         public List<string> Keywords { get; set; }
         /// <summary>

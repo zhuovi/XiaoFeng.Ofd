@@ -17,7 +17,7 @@ namespace XiaoFeng.Ofd.BaseType
     /// <summary>
     /// ST_Array类型
     /// </summary>
-    public class STArray
+    public class STArray : IValue<STArray>, IEquatable<STArray>
     {
         #region 构造器
         /// <summary>
@@ -87,11 +87,82 @@ namespace XiaoFeng.Ofd.BaseType
         {
             return new STArray(v);
         }
+        /// <summary>
+        /// 显示转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static explicit operator object[](STArray v)
+        {
+            return v.Values.ToArray();
+        }
+        /// <summary>
+        /// 隐式转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static implicit operator STArray(object[] v)
+        {
+            return new STArray(v);
+        }
         ///<inheritdoc/>
         public override string ToString()
         {
             return Values.Join(" ");
         }
+        ///<inheritdoc/>
+        public object Parse(string value)
+        {
+            return new STArray(value);
+        }
+        ///<inheritdoc/>
+        public bool TryParse(string value, out STArray result)
+        {
+            result = null;
+            if (value.IsNullOrEmpty()) return false;
+            result = new STArray(value);
+            return true;
+        }
+        /// <summary>
+        /// 是否相等
+        /// </summary>
+        /// <param name="other">其它数组</param>
+        /// <returns></returns>
+        public bool Equals(STArray other)
+        {
+            return this == other;
+        }
+        /// <summary>
+        /// 是否相等
+        /// </summary>
+        /// <param name="obj">对象</param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            return obj is STArray array && this == array;
+        }
+        ///<inheritdoc/>
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(this.Values.GetHashCode(), base.GetHashCode());
+        }
+        /// <summary>
+        /// 两个对象是否相等
+        /// </summary>
+        /// <param name="left">左边对象 <see cref="STArray"/> </param>
+        /// <param name="right">右边对象 <see cref="STArray"/> </param>
+        /// <returns></returns>
+        public static bool operator ==(STArray left, STArray right)
+        {
+            if (left == null && right == null) return true;
+            if (left == null || right == null) return false;
+            return left.ToString() == right.ToString();
+        }
+        /// <summary>
+        /// 两个对象是否不相等
+        /// </summary>
+        /// <param name="left">左边对象 <see cref="STArray"/> </param>
+        /// <param name="right">右边对象 <see cref="STArray"/> </param>
+        /// <returns></returns>
+        public static bool operator !=(STArray left, STArray right) => !(left == right);
         #endregion
     }
 }

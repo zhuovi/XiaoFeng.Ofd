@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using XiaoFeng.Ofd.Enum;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -17,7 +18,7 @@ namespace XiaoFeng.Ofd.BaseType
     /// <summary>
     /// ST_Loc类型
     /// </summary>
-    public class Location
+    public class Location : IValue,IEquatable<Location>
     {
         #region 构造器
         /// <summary>
@@ -50,6 +51,48 @@ namespace XiaoFeng.Ofd.BaseType
         {
             return Value;
         }
+        ///<inheritdoc/>
+        public object Parse(string value)
+        {
+            return new Location(value);
+        }
+        /// <summary>
+        /// 是否相等
+        /// </summary>
+        /// <param name="other">另一个对象 <see cref="Location"/></param>
+        /// <returns></returns>
+        public bool Equals(Location other)
+        {
+            return this == other;
+        }
+        /// <summary>
+        /// 是否相等
+        /// </summary>
+        /// <param name="other">另一个对象 <see cref="Location"/></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            return obj is Location loc && Equals(loc);
+        }
+        /// <summary>
+        /// 两个对象是否相等
+        /// </summary>
+        /// <param name="left">一个对象 <see cref="Location"/></param>
+        /// <param name="right">一个对象 <see cref="Location"/></param>
+        /// <returns></returns>
+        public static bool operator ==(Location left,Location right)
+        {
+            if (left == null && right == null) return true;
+            if (left == null || right == null) return false;
+            return left.Value == right.Value;
+        }
+        /// <summary>
+        /// 两个对象是否不相等
+        /// </summary>
+        /// <param name="left">一个对象 <see cref="Location"/></param>
+        /// <param name="right">一个对象 <see cref="Location"/></param>
+        /// <returns></returns>
+        public static bool operator !=(Location left, Location right) => !(left == right);
         /// <summary>
         /// 显示转换
         /// </summary>

@@ -16,6 +16,7 @@ namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
     /// 放映参数
+    /// <para>详情说明 见表 <see langword="59"/> </para>
     /// </summary>
     public enum OperatorType
     {

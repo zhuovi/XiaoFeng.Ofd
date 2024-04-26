@@ -47,11 +47,11 @@ namespace XiaoFeng.Ofd.PageDescription
         /// <summary>
         /// 用于裁剪的图形，见 <see langword="9.1"/> 图形对象
         /// </summary>
-        public Path Path { get; set; }
+        public PathObject Path { get; set; }
         /// <summary>
         /// 用于裁剪的文本，见 <see langword="11.2"/> 文字对象
         /// </summary>
-        public Text Text { get; set; }
+        public TextObject Text { get; set; }
         #endregion
 
         #region 方法

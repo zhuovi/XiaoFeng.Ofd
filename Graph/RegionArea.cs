@@ -19,6 +19,7 @@ namespace XiaoFeng.Ofd.Graph
 {
     /// <summary>
     /// 区域分路径
+    /// <para>详情说明 见图 <see langword="49"/> </para>
     /// </summary>
     public class RegionArea
     {

@@ -17,7 +17,7 @@ namespace XiaoFeng.Ofd.BaseType
     /// <summary>
     /// ST_RefID类型
     /// </summary>
-    public class STRefID
+    public class STRefID:IValue<STRefID>,IEquatable<STRefID>
     {
         #region 构造器
         /// <summary>
@@ -58,6 +58,19 @@ namespace XiaoFeng.Ofd.BaseType
         {
             return Value.ToString();
         }
+        ///<inheritdoc/>
+        public object Parse(string value)
+        {
+            return new STRefID(value);
+        }
+        ///<inheritdoc/>
+        public bool TryParse(string value, out STRefID result)
+        {
+            result = null;
+            if (value.StartsWith("-") || !value.IsNumberic()) return false;
+            result = new STRefID(value);
+            return true;
+        }
         /// <summary>
         /// 显示转换
         /// </summary>
@@ -90,6 +103,122 @@ namespace XiaoFeng.Ofd.BaseType
         {
             return new STRefID(v);
         }
+        /// <summary>
+        /// 显示转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static explicit operator int(STRefID v)
+        {
+            return (int)v.Value;
+        }
+        /// <summary>
+        /// 隐式转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static implicit operator STRefID(int v)
+        {
+            return new STRefID((uint)v);
+        }
+        /// <summary>
+        /// 显示转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static explicit operator STID(STRefID v)
+        {
+            return new STID(v.Value);
+        }
+        /// <summary>
+        /// 隐式转换
+        /// </summary>
+        /// <param name="v">值</param>
+        public static implicit operator STRefID(STID v)
+        {
+            return new STRefID(v.ToString().ToCast<uint>());
+        }
+        /// <summary>
+        /// ID增加值
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <param name="v">值</param>
+        /// <returns></returns>
+        public static STRefID operator +(STRefID id, uint v)
+        {
+            id.Value += v;
+            return id;
+        }
+        /// <summary>
+        /// ID减少值
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <param name="v">值</param>
+        /// <returns></returns>
+        public static STRefID operator -(STRefID id, uint v)
+        {
+            id.Value -= v;
+            return id;
+        }
+        /// <summary>
+        /// ID 自动加一
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <returns></returns>
+        public static STRefID operator ++(STRefID id)
+        {
+            id.Value++;
+            return id;
+        }
+        /// <summary>
+        /// ID 自动减一
+        /// </summary>
+        /// <param name="id">ID</param>
+        /// <returns></returns>
+        public static STRefID operator --(STRefID id)
+        {
+            id.Value--;
+            return id;
+        }
+        ///<inheritdoc/>
+        public override int GetHashCode()
+        {
+            return this.Value.GetHashCode();
+        }
+        /// <summary>
+        /// 两个对象是否相等
+        /// </summary>
+        /// <param name="other">另一个对象 <see cref="STRefID"/> 。</param>
+        /// <returns></returns>
+        public bool Equals(STRefID other)
+        {
+            return this == other;
+        }
+        /// <summary>
+        /// 两个对象是否相等
+        /// </summary>
+        /// <param name="obj">另一个对象 <see cref="STRefID"/> 。</param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            return obj is STRefID id && this == id;
+        }
+        /// <summary>
+        /// 两个对象是否相等
+        /// </summary>
+        /// <param name="left">一个对象 <see cref="STRefID"/> 。</param>
+        /// <param name="right">一个对象 <see cref="STRefID"/> 。</param>
+        /// <returns></returns>
+        public static bool operator ==(STRefID left, STRefID right)
+        {
+            if (left == null && right == null) return true;
+            if (left == null || right == null) return false;
+            return left.Value == right.Value;
+        }
+        /// <summary>
+        /// 两个对象是否不相等
+        /// </summary>
+        /// <param name="left">一个对象 <see cref="STRefID"/> 。</param>
+        /// <param name="right">一个对象 <see cref="STRefID"/> 。</param>
+        /// <returns></returns>
+        public static bool operator !=(STRefID left, STRefID right) => !(left == right);
         #endregion
     }
 }

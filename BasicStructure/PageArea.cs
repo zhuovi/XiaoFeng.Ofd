@@ -17,7 +17,8 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 页面区域结构
+    /// <para>页面区域结构</para>
+    /// <para>详情说明 见图 <see langword="7"/> ，见表 <see langword="7"/> </para>
     /// </summary>
     public class PageArea
     {

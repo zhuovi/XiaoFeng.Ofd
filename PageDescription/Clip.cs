@@ -16,7 +16,10 @@ using System.Xml.Serialization;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 剪切区
+    /// <para>剪切区</para>
+    /// <para>裁剪区由一组路径或文字构成，用以指定页面上：的一个有效绘制区域，落在裁剪区以外的部分不受绘制指令的影响。</para>
+///<para>一个裁前区可由多个分路径(Area)组成，最终的裁剪范围是各个分路径的并集。裁剪区中的数据均相对于所修饰图元对象的外接矩形。</para>
+    /// <para>详情说明 见图 <see langword="44"/> ，见表 <see langword="33"/> </para>
     /// </summary>
     public class Clip
     {

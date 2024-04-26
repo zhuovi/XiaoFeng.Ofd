@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 using XiaoFeng.Ofd.BaseType;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -17,17 +18,40 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Fonts
 {
     /// <summary>
-    /// 文字定位
+    /// <para>文字定位</para>
+    /// <para>文字对象使用严格的文字定位信息进行定位</para>
+    /// <para>详情说明 见图 <see langword="61"/> ，见表 <see langword="46"/> </para>
     /// </summary>
     public class TextCode
     {
         #region 构造器
         /// <summary>
-        /// 无参构造器
+        /// 初始化一个新实例
         /// </summary>
-        public TextCode()
+        public TextCode() { }
+        /// <summary>
+        /// 初始化一个新实例
+        /// </summary>
+        /// <param name="text">文本内容</param>
+        public TextCode(string text)
         {
-
+            this.Value = text;
+        }
+        /// <summary>
+        /// 初始化一个新实例
+        /// </summary>
+        /// <param name="text">文本内容</param>
+        /// <param name="x">X坐标</param>
+        /// <param name="y">Y坐标</param>
+        /// <param name="deltaX">后一个文字与前一个文字之间在 X 方向的偏移值</param>
+        /// <param name="deltaY">后一个文字与前一个文字之间在 Y 方向的偏移值</param>
+        public TextCode(string text, double x, double y, STArray deltaX = null, STArray deltaY = null)
+        {
+            Value = text;
+            X = x;
+            Y = y;
+            DeltaX = deltaX;
+            DeltaY = deltaY;
         }
         #endregion
 
@@ -52,6 +76,13 @@ namespace XiaoFeng.Ofd.Fonts
         /// </summary>
         [XmlAttribute]
         public STArray DeltaY { get; set; }
+        /// <summary>
+        /// 文字字符串
+        /// </summary>
+        [XmlCData]
+        [XmlText]
+        
+        public string Value { get; set; }
         #endregion
 
         #region 方法

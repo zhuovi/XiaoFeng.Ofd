@@ -20,7 +20,9 @@ using Action = XiaoFeng.Ofd.Actions.Action;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 图元对象
+    /// <para>图元对象</para>
+    /// <para>图元对象是版式文档中页面上呈现内容的最基本单元，所有页面显示内容，包括文字、图形、图像等，都属于图元对象，或是图元对象的组合。</para>
+    /// <para>详情说明 见图 <see langword="45"/> ，见表 <see langword="34"/> </para>
     /// </summary>
     public class GraphicUnit
     {
@@ -35,6 +37,11 @@ namespace XiaoFeng.Ofd.PageDescription
         #endregion
 
         #region 属性
+        /// <summary>
+        /// ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
         /// <summary>
         /// 外接矩形，采用当前空间坐标系（页面坐标或其它窗口坐标)，当图元绘制超出此矩形区域时进行裁剪
         /// </summary>

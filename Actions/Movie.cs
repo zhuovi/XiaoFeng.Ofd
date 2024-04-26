@@ -19,7 +19,9 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.Actions
 {
     /// <summary>
-    /// 播放视频动作
+    /// <para>播放视频动作</para>
+    /// <para>Movie 动作用于播放视频。</para>
+    /// <para>详情说明 见图 <see langword="79"/> ，见表 <see langword="58"/> </para>
     /// </summary>
     public class Movie
     {

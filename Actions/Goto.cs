@@ -17,7 +17,9 @@ using XiaoFeng.Ofd.BasicStructure;
 namespace XiaoFeng.Ofd.Actions
 {
     /// <summary>
-    /// 跳转动作
+    /// <para>跳转动作</para>
+    /// <para>跳转动作表明同一个文档内的跳转，包含一个目标区域或者书签位置</para>
+    /// <para>详情说明 见图 <see langword="74"/> ，见表 <see langword="53"/> </para>
     /// </summary>
     public class Goto
     {

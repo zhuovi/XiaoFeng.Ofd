@@ -42,12 +42,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Doc\" />
-	  <Folder Include="Text\" />
-	  <Folder Include="Image\" />
-	  <Folder Include="Signatures\" />
-	  <Folder Include="Fonts\" />
-	  <Folder Include="Resources\" />
-	  <Folder Include="Pages\" />
+	  <Folder Include="Cryptography\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\XiaoFeng\XiaoFeng.csproj" />

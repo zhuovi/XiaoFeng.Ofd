@@ -18,7 +18,8 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Attachs
 {
     /// <summary>
-    /// 附件
+    /// <para>附件</para>
+    /// 详情说明 见图 <see langword="92"/> ，见表 <see langword="73"/> </para>
     /// </summary>
     public class Attachment
     {

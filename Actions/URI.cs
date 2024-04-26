@@ -17,7 +17,9 @@ using XiaoFeng.Ofd.Attributes;
 namespace XiaoFeng.Ofd.Actions
 {
     /// <summary>
-    /// URI 动作
+    /// <para>URI 动作</para>
+    /// <para>UR1动作表明的是指向一个 UR1位置。</para>
+    /// <para>详情说明 见图 <see langword="77"/> ，见表 <see langword="56"/> </para>
     /// </summary>
     public class URI
     {

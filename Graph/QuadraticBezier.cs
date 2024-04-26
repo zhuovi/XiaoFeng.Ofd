@@ -19,6 +19,7 @@ namespace XiaoFeng.Ofd.Graph
 {
     /// <summary>
     /// 二次贝塞尔曲线
+    /// <para>详情说明 见图 <see langword="52"/> ，见表 <see langword="40"/> </para>
     /// </summary>
     public class QuadraticBezier
     {

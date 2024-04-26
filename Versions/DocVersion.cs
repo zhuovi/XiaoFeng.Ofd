@@ -19,7 +19,9 @@ using XiaoFeng.Ofd.BasicStructure;
 namespace XiaoFeng.Ofd.Versions
 {
     /// <summary>
-    /// 文档版本
+    /// <para>文档版本</para>
+    /// <para>版本信息在独立的文件中描述，如图90所示，版本定义结构中列出了一个OFD文档版本中所需的所有文件</para>
+    /// 详情说明 见图 <see langword="90"/> ，见表 <see langword="71"/> </para>
     /// </summary>
     public class DocVersion
     {

@@ -20,7 +20,9 @@ using XiaoFeng.Ofd.PageDescription;
 namespace XiaoFeng.Ofd.CompositeObject
 {
     /// <summary>
-    /// 复合对象
+    /// <para>复合对象</para>
+    /// <para>复合对象是一种特殊的图元对象，拥有图元对象的一切特性，但其内容在 ResourceID指向的矢量图像资源中进行描述，一个资源可以被多个复合对象所引用，通过这种方式可实现对文档内矢量图文内容的复用。</para>
+    /// <para>详情说明 见图 <see langword="71"/> ，见表 <see langword="49"/> </para>
     /// </summary>
     public class Composite : GraphicUnit, IPageBlock
     {

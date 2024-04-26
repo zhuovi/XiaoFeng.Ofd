@@ -15,7 +15,8 @@ using System.Text;
 namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
-    /// 图层类型
+    /// <para>图层类型</para>
+    /// <para>见表 <see langword="15"/> </para>
     /// </summary>
     public enum LayerType
     {

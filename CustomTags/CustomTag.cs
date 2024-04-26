@@ -18,7 +18,8 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.CustomTags
 {
     /// <summary>
-    /// 自定义标引
+    /// <para>自定义标引</para>
+    /// <para>详情说明 见图 <see langword="82"/> ，见表 <see langword="63"/> </para>
     /// </summary>
     public class CustomTag
     {

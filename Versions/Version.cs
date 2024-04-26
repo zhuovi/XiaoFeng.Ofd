@@ -18,7 +18,8 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.Versions
 {
     /// <summary>
-    /// 版本描述
+    /// <para>版本描述</para>
+    /// <para>详情说明 见图 <see langword="89"/> ，见表 <see langword="70"/> </para>
     /// </summary>
     public class Version
     {

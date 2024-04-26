@@ -16,7 +16,9 @@ using System.Xml.Serialization;
 namespace XiaoFeng.Ofd.Signatures
 {
     /// <summary>
-    /// 签名范围
+    /// <para>签名范围</para>
+    /// <para>References的下级节点记录了包内文件的摘要信息</para>
+    /// <para>详情说明 见图 <see langword="86"/> ，见表 <see langword="67"/> </para>
     /// </summary>
     public class References
     {

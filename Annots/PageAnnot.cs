@@ -16,7 +16,8 @@ using System.Xml.Serialization;
 namespace XiaoFeng.Ofd.Annots
 {
     /// <summary>
-    /// 分页注释
+    /// <para>分页注释</para>
+    /// <para>详情说明 见图 <see langword="81"/> ，见表 <see langword="61"/> </para>
     /// </summary>
     public class PageAnnot
     {

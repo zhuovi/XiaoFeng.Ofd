@@ -17,17 +17,25 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 颜色
+    /// <para>颜色</para>
+    /// <para>详情说明 见图 <see langword="25"/> ，见表 <see langword="26"/> </para>
     /// </summary>
     public class Color
     {
         #region 构造器
         /// <summary>
-        /// 无参构造器
+        /// 初始化一个新实例
         /// </summary>
-        public Color()
+        public Color() { }
+        public Color(int index, STArray value)
         {
-
+            this.Index = index;
+            this.Value = value;
+        }
+        public Color(int index,params object[] values)
+        {
+            this.Index = index;
+            this.Value = values;
         }
         #endregion
 

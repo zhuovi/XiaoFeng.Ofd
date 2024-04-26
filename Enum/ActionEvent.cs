@@ -16,6 +16,7 @@ namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
     /// 动作事件
+    /// <para>详情说明 见表 <see langword="52"/> </para>
     /// </summary>
     public enum ActionEvent
     {

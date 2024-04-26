@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using XiaoFeng.Ofd.Actions;
+using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
+using Action = XiaoFeng.Ofd.Actions.Action;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -17,8 +19,11 @@ using XiaoFeng.Ofd.BaseType;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 页对象
+    /// <para>页对象</para>
+    /// <para>页对象支持模板页描述，每一页经常需要重复显示的内容可统一在模板页中描述，文档可以包含多个模板页。通过使用模板页可以使重复显示的内容不必出现在描述每一页的页面描述内容中.而只需通过Templnte节点进行引用</para>
+    /// <para>详情说明 见图 <see langword="13"/> ，见表 <see langword="12"/> </para>
     /// </summary>
+    [XmlPath("Doc_{0}/Pages/Page_{1}/Content.xml")]
     public class Page
     {
         #region 构造器
@@ -55,7 +60,24 @@ namespace XiaoFeng.Ofd.BasicStructure
         #endregion
 
         #region 方法
-
+        /// <summary>
+        /// 添加图层
+        /// </summary>
+        /// <param name="layer">图层</param>
+        public void AddLayer(Layer layer)
+        {
+            if (this.Content == null) this.Content = new List<Layer>();
+            this.Content.Add(layer);
+        }
+        /// <summary>
+        /// 移除图层
+        /// </summary>
+        /// <param name="index">图层索引</param>
+        public void RemoveLayer(int index)
+        {
+            if (this.Content == null || this.Content.Count == 0 || this.Content.Count <= index) return;
+            this.Content.RemoveAt(index);
+        }
         #endregion
     }
 }

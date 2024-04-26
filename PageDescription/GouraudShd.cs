@@ -16,7 +16,9 @@ using System.Xml.Serialization;
 namespace XiaoFeng.Ofd.PageDescription
 {
     /// <summary>
-    /// 高洛德渐变
+    /// <para>高洛德渐变</para>
+    /// <para>高洛德渐变的基本原理是指定三个带有可选颜色的顶点，在其构成的三角形区域内采用高洛德算法绘制渐变图形。</para>
+    /// <para>详情说明 见图 <see langword="41"/> ，见表 <see langword="31"/> </para>
     /// </summary>
     public class GouraudShd
     {

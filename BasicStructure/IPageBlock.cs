@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
+using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Internal;
 
 /****************************************************************
@@ -18,9 +19,15 @@ using XiaoFeng.Ofd.Internal;
 namespace XiaoFeng.Ofd.BasicStructure
 {
     /// <summary>
-    /// 控件接口
+    /// <para>页面块结构接口</para>
+    /// <para>详情说明 见图 <see langword="17"/> ，见表 <see langword="16"/> </para>
     /// </summary>
     public interface IPageBlock
     {
+        /// <summary>
+        /// ID
+        /// </summary>
+        [XmlAttribute]
+        STID ID { get; set; }
     }
 }

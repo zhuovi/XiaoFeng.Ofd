@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -19,7 +20,8 @@ using XiaoFeng.Ofd.Enum;
 namespace XiaoFeng.Ofd.Actions
 {
     /// <summary>
-    /// 目标区域
+    /// <para>目标区域</para>
+    /// <para>详情说明 见图 <see langword="75"/> ，见表 <see langword="54"/> </para>
     /// </summary>
     public class Dest
     {
@@ -39,6 +41,7 @@ namespace XiaoFeng.Ofd.Actions
         /// </summary>
         [XmlAttribute]
         [Required]
+        [XmlConverter(typeof(StringEnumConverter))]
         public DestType Type { get; set; }
         /// <summary>
         /// 引用跳转目标不页面的标识

@@ -39,7 +39,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <summary>
         /// 用户自定义元数据，可以指定一个名称及其对应的值
         /// </summary>
-        [XmlCData]
+        [XmlText]
         public string Value { get; set; }
         #endregion
 

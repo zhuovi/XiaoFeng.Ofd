@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -34,21 +35,20 @@ namespace XiaoFeng.Ofd.Internal
         /// 文件路径
         /// </summary>
         public string Path { get; set; }
-        /// <summary>
+        /*/// <summary>
         /// 实体数据
         /// </summary>
-        //public T Entity { get; set; }
+        ///public T Entity { get; set; }*/
         #endregion
 
         #region 方法
-        /// <summary>
-        /// 保存
-        /// </summary>
-        public void Save()
+       /// <summary>
+       /// 获取文档数据
+       /// </summary>
+       /// <returns></returns>
+        public byte[] GetBytes()
         {
-            var a = this.EntityToXml();
-
-            var b = "";
+            return this.EntityToXml(OFDHelper.OFDEncoding, false, true, true, true, false, OFDHelper.GetNamespaces()).GetBytes(OFDHelper.OFDEncoding);
         }
         /// <summary>
         /// 读取

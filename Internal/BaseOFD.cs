@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Text;
+using XiaoFeng.IO;
 using XiaoFeng.Ofd.BasicStructure;
+using XiaoFeng.Ofd.Enum;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -36,6 +39,7 @@ namespace XiaoFeng.Ofd.Internal
         public BaseOFD(string filePath) : this()
         {
             this.FilePath = filePath;
+            this.FileZip = new ZipArchive(System.IO.File.Open(filePath, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite), ZipArchiveMode.Update, false, Encoding.UTF8);
         }
         #endregion
 
@@ -52,10 +56,37 @@ namespace XiaoFeng.Ofd.Internal
         /// OFD 文档
         /// </summary>
         public OFD Ofd { get; set; }
+        /// <summary>
+        /// 文档流
+        /// </summary>
+        public ZipArchive FileZip { get; set; }
+        /// <summary>
+        /// 操作状态
+        /// </summary>
+        public OfdStatus Status { get; set; } = OfdStatus.SUCCESS;
+        /// <summary>
+        /// 错误信息
+        /// </summary>
+        public List<string> ErrorMessage { get; set; } = new List<string>();
         #endregion
 
         #region 方法
-
+        /// <summary>
+        /// 设置成功状态
+        /// </summary>
+        public void SetSuccess() => this.Status = OfdStatus.SUCCESS;
+        /// <summary>
+        /// 设置错误信息
+        /// </summary>
+        /// <param name="message">错误信息</param>
+        public bool SetError(string message)
+        {
+            this.Status = OfdStatus.ERROR;
+            if (message.IsNullOrEmpty()) return false;
+            if (this.ErrorMessage == null) this.ErrorMessage = new List<string>();
+            this.ErrorMessage.Add(message);
+            return false;
+        }
         #endregion
 
         #region 释放

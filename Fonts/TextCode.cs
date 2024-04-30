@@ -33,9 +33,13 @@ namespace XiaoFeng.Ofd.Fonts
         /// 初始化一个新实例
         /// </summary>
         /// <param name="text">文本内容</param>
-        public TextCode(string text)
+        /// <param name="x">X坐标</param>
+        /// <param name="y">Y坐标</param>
+        public TextCode(string text, double? x = null, double? y = null)
         {
             this.Value = text;
+            if (x.HasValue) this.X = x.Value;
+            if (y.HasValue) this.Y = y.Value;
         }
         /// <summary>
         /// 初始化一个新实例
@@ -79,14 +83,16 @@ namespace XiaoFeng.Ofd.Fonts
         /// <summary>
         /// 文字字符串
         /// </summary>
-        [XmlCData]
-        [XmlText]
-        
+        [XmlText]        
         public string Value { get; set; }
         #endregion
 
         #region 方法
-
+        ///<inheritdoc/>
+        public override string ToString()
+        {
+            return $"{this.Value}";
+        }
         #endregion
     }
 }

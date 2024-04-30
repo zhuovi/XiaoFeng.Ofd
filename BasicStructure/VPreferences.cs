@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -35,14 +36,17 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <summary>
         /// 窗口模式
         /// </summary>
+        [XmlConverter(typeof(StringEnumConverter))] 
         public PageMode PageMode { get; set; }
         /// <summary>
         /// 页面布局模式
         /// </summary>
+        [XmlConverter(typeof(StringEnumConverter))] 
         public PageLayout PageLayout { get; set; } = PageLayout.OneColumn;
         /// <summary>
         /// 标题栏显示模式
         /// </summary>
+        [XmlConverter(typeof(StringEnumConverter))]
         public TabDisplay TabDisplay { get; set; } = TabDisplay.DocTitle;
         /// <summary>
         /// 是否隐藏工具栏
@@ -59,6 +63,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <summary>
         /// 自动缩放模式
         /// </summary>
+        [XmlConverter(typeof(StringEnumConverter))] 
         public ZoomMode ZoomMode { get; set; }
         /// <summary>
         /// 文档绽放率

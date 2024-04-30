@@ -6,6 +6,7 @@ using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.BasicStructure;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -66,12 +67,14 @@ namespace XiaoFeng.Ofd.PageDescription
         /// </summary>
         [XmlAttribute]
         [Required]
+        [XmlConverter(typeof(StringEnumConverter))]
         public ReflectMethod ReflectMethod { get; set; } = ReflectMethod.Normal;
         /// <summary>
         /// 底纹单元起始绘制位置
         /// </summary>
         [XmlAttribute]
         [Required]
+        [XmlConverter(typeof(StringEnumConverter))]
         public RelativeType RelativeTo { get; set; }
         /// <summary>
         /// 底纹单元的变换矩阵，用于某些需要对底纹单元进行平移旋转变换的场合，默认为单位矩阵；底纹呈现时先做XStep,YStep排列，然后一起作CTM处理

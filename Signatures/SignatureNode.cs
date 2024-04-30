@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -45,6 +46,7 @@ namespace XiaoFeng.Ofd.Signatures
         /// 签名节点类型
         /// </summary>
         [XmlAttribute]
+        [XmlConverter(typeof(StringEnumConverter))]
         public SignatureType Type { get; set; }
         /// <summary>
         /// 指向包内的签名描述文件

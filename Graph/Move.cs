@@ -22,7 +22,7 @@ namespace XiaoFeng.Ofd.Graph
     /// <para>移动节点用于表示移动到新的绘制点指令</para>
     /// <para>详情说明 见图 <see langword="50"/> ，见表 <see langword="38"/> </para>
     /// </summary>
-    public class Move
+    public class Move : IGraph
     {
         #region 构造器
         /// <summary>
@@ -35,6 +35,11 @@ namespace XiaoFeng.Ofd.Graph
         #endregion
 
         #region 属性
+        /// <summary>
+        /// ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
         /// <summary>
         /// 移动后新的当前绘制点
         /// </summary>

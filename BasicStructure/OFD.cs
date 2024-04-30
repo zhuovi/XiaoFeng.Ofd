@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.Enum;
 using XiaoFeng.Ofd.Internal;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -61,11 +62,13 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// </summary>
         [XmlAttribute]
         [Required]
+        [XmlConverter(typeof(StringEnumConverter))]
         public DocumentType DocType { get; set; } = DocumentType.OFD;
         /// <summary>
         /// 文件对象入口，可以存在多个，以便在一个文档中包含多个版式文档
         /// </summary>
         [Required]
+        [XmlArrayItem("DocBody")]
         public List<DocBody> DocBody { get; set; }
         #endregion
 
@@ -76,8 +79,9 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <param name="body">版式文档</param>
         public void AddDocBody(DocBody body)
         {
-            if (body != null)
-                this.DocBody.Add(body);
+            if (body == null) return;
+            if (this.DocBody == null) this.DocBody = new List<DocBody>();
+            this.DocBody.Add(body);
         }
         /// <summary>
         /// 移除版式文档

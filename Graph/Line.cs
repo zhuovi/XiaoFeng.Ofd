@@ -22,7 +22,7 @@ namespace XiaoFeng.Ofd.Graph
     /// <para></para>
     /// <para>详情说明 见图 <see langword="51"/> ，见表 <see langword="39"/> </para>
     /// </summary>
-    public class Line
+    public class Line:IGraph
     {
         #region 构造器
         /// <summary>
@@ -35,6 +35,11 @@ namespace XiaoFeng.Ofd.Graph
         #endregion
 
         #region 属性
+        /// <summary>
+        /// ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
         /// <summary>
         /// 线段的结束点
         /// </summary>

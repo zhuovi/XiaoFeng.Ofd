@@ -19,9 +19,21 @@ namespace XiaoFeng.Ofd.Enum
     /// </summary>
     public enum FontCharset
     {
+        /// <summary>
+        /// UNICODE
+        /// </summary>
         unicode = 0,
+        /// <summary>
+        /// SYMBOL
+        /// </summary>
         symbol = 1,
+        /// <summary>
+        /// PRC
+        /// </summary>
         prc = 2,
+        /// <summary>
+        /// BIG5
+        /// </summary>
         big5 = 3,
     }
 }

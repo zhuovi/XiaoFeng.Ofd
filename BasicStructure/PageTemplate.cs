@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -45,6 +46,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// </summary>
         [XmlAttribute]
         [Required]
+        [XmlConverter(typeof(StringEnumConverter))]
         public LayerType ZOrder { get; set; } = LayerType.Background;
         #endregion
 

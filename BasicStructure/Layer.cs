@@ -83,6 +83,18 @@ namespace XiaoFeng.Ofd.BasicStructure
             if (this.PageBlock == null) this.PageBlock = new List<IPageBlock>();
             this.PageBlock.Add(pageBlock);
         }
+        /// <summary>
+        /// 更新块结构
+        /// </summary>
+        /// <param name="pageBlock">块结构</param>
+        public void UpdatePageBlock(IPageBlock pageBlock)
+        {
+            if (pageBlock == null) return;
+            if (this.PageBlock == null) this.PageBlock = new List<IPageBlock>();
+            var block = this.PageBlock.Find(a => a.ID == pageBlock.ID);
+            if (block == null) this.PageBlock.Add(pageBlock);
+            else block = pageBlock;
+        }
         #endregion
     }
 }

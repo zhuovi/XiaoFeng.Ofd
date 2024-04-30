@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -46,6 +47,7 @@ namespace XiaoFeng.Ofd.Actions
         /// 放映参数，默认值为 <see cref="OperatorType.Play"/>
         /// </summary>
         [XmlAttribute]
+        [XmlConverter(typeof(StringEnumConverter))] 
         public OperatorType Operator { get; set; }
         #endregion
 

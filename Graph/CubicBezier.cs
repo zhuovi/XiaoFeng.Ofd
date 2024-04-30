@@ -21,7 +21,7 @@ namespace XiaoFeng.Ofd.Graph
     /// 三次贝塞尔曲线
     /// <para>详情说明 见图 <see langword="53"/> ，见表 <see langword="41"/> </para>
     /// </summary>
-    public class CubicBezier
+    public class CubicBezier:IGraph
     {
         #region 构造器
         /// <summary>
@@ -34,6 +34,11 @@ namespace XiaoFeng.Ofd.Graph
         #endregion
 
         #region 属性
+        /// <summary>
+        /// ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
         /// <summary>
         /// 三次贝塞尔曲线的第一个控制点
         /// </summary>

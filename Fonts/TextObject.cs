@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.BasicStructure;
+using XiaoFeng.Ofd.Enum;
 using XiaoFeng.Ofd.PageDescription;
 
 /****************************************************************
@@ -27,7 +29,7 @@ namespace XiaoFeng.Ofd.Fonts
     {
         #region 构造器
         /// <summary>
-        /// 无参构造器
+        /// 初始化一个新实例
         /// </summary>
         public TextObject()
         {
@@ -57,32 +59,32 @@ namespace XiaoFeng.Ofd.Fonts
         /// 是否填充，默认值为 <see langword="true"/>
         /// </summary>
         [XmlAttribute]
-        public bool Fill { get; set; }
+        public bool? Fill { get; set; }
         /// <summary>
         /// 字型在水平方向的放缩比，默认值为 1.0 ，例如：当 <see cref="HScale"/> 值为 <see langword="0.5"/> 时表示 实际显示的字宽为原来字宽的一半
         /// </summary>
         [XmlAttribute]
-        public double HScale { get; set; }
+        public double? HScale { get; set; }
         /// <summary>
         /// 阅读方向，指定了文字排列的方向，描述见 11.3 文字定位 ，默认值为 <see langword="0"/>
         /// </summary>
         [XmlAttribute]
-        public int ReadDirection { get; set; }
+        public Direction? ReadDirection { get; set; }
         /// <summary>
         /// 字符方向，指定了文字放置的方式，具体内容见 11.3 文字定位 ，默认值为 <see langword="0"/>
         /// </summary>
         [XmlAttribute]
-        public int CharDirection { get; set; }
+        public Direction? CharDirection { get; set; }
         /// <summary>
         /// 文字对象的粗细值；可选取值为 100，200，300，400，500，600，700，800，900，默认值为400
         /// </summary>
         [XmlAttribute]
-        public int Weight { get; set; } = 400;
+        public int? Weight { get; set; } = 400;
         /// <summary>
         /// 是否是斜体样式，默认值为 <see langword="false"/>
         /// </summary>
         [XmlAttribute]
-        public bool Italic { get; set; }
+        public bool? Italic { get; set; }
         /// <summary>
         /// 填充颜色，默认为黑色
         /// </summary>
@@ -114,6 +116,16 @@ namespace XiaoFeng.Ofd.Fonts
             this.TextCode.Add(textCode);
         }
         /// <summary>
+        /// 添加文字内容
+        /// </summary>
+        /// <param name="text">文字内容</param>
+        /// <param name="x">X坐标</param>
+        /// <param name="y">Y坐标</param>
+        public void AddText(string text, double? x = null, double? y = null)
+        {
+            this.AddText(new TextCode(text, x, y));
+        }
+        /// <summary>
         /// 添加字型变换
         /// </summary>
         /// <param name="transform">字型变换</param>
@@ -121,6 +133,12 @@ namespace XiaoFeng.Ofd.Fonts
         {
             if (this.CGTransform == null) this.CGTransform = new List<CGTransform>();
             this.CGTransform.Add(transform);
+        }
+        ///<inheritdoc/>
+        public override string ToString()
+        {
+            if (this.TextCode == null || this.TextCode.Count == 0) return string.Empty;
+            return $"{this.TextCode.Select(a => a.Value).Join(" ")}";
         }
         #endregion
     }

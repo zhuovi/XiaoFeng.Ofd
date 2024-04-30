@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 using Action = XiaoFeng.Ofd.Actions.Action;
 
 /****************************************************************
@@ -57,7 +58,7 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 图元是否可见，默认值为true
         /// </summary>
         [XmlAttribute]
-        public bool Visible { get; set; }
+        public bool? Visible { get; set; }
         /// <summary>
         /// 对象空间内的图元变换矩阵
         /// </summary>
@@ -72,7 +73,7 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 绘制路径时使用的线宽，如果图元对象有 DrawParam 属性，则用此值覆盖 DrawParam 中对应的值
         /// </summary>
         [XmlAttribute]
-        public double LineWidth { get; set; }
+        public double? LineWidth { get; set; }
         /// <summary>
         /// 见8.2绘制参数，如果图元对象有 DrawParam 属性，则用此值覆盖 DrawParam 中对应的值
         /// </summary>
@@ -82,17 +83,18 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 见8.2绘制参数，如果图元对象有 DrawParam 属性，则用此值覆盖 DrawParam 中对应的值
         /// </summary>
         [XmlAttribute]
-        public JoinType Join { get; set; }
+        [XmlConverter(typeof(StringEnumConverter))]
+        public JoinType? Join { get; set; }
         /// <summary>
         /// Join 为 Miter时，MiterSize的截断值，如果图元对象有 DrawParam 属性，则用此值覆盖 DrawParam 中对应的值
         /// </summary>
         [XmlAttribute]
-        public double MiterLimit { get; set; }
+        public double? MiterLimit { get; set; }
         /// <summary>
         /// 见 8.2 绘制参数，如果图元对象有 DrawParam 属性，则用此值覆盖 DrawParam 中对应的值
         /// </summary>
         [XmlAttribute]
-        public double DashOffset { get; set; }
+        public double? DashOffset { get; set; }
         /// <summary>
         /// 见 8.2 绘制参数，如果图元对象有 DrawParam 属性，则用此值覆盖 DrawParam 中对应的值
         /// </summary>
@@ -102,7 +104,7 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 图元对象的透明度，取值[0,255],0表示全透明，255表示完全不透明，默认为0
         /// </summary>
         [XmlAttribute]
-        public int Alpha { get; set; }
+        public int? Alpha { get; set; }
         /// <summary>
         /// 图元动作，图元动作事件类型应为 CLICK（见表52事件类型）
         /// </summary>

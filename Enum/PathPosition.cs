@@ -8,28 +8,28 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 20:36:16                            *
+*  Create Time : 2024-04-30 12:06:06                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
 namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
-    /// 多媒体类型
+    /// 定位方式
     /// </summary>
-    public enum MultiMediaType
+    public enum PathPosition
     {
         /// <summary>
-        /// 图像
+        /// 静态定位
         /// </summary>
-        IMAGE = 0,
+        Staic = 0,
         /// <summary>
-        /// 视频
+        /// 相对定位
         /// </summary>
-        VIDEO = 1,
+        Relative = 1,
         /// <summary>
-        /// 音频
+        /// 绝对定位
         /// </summary>
-        AUDIO = 2
+        Absolute = 2
     }
 }

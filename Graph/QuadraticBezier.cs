@@ -21,7 +21,7 @@ namespace XiaoFeng.Ofd.Graph
     /// 二次贝塞尔曲线
     /// <para>详情说明 见图 <see langword="52"/> ，见表 <see langword="40"/> </para>
     /// </summary>
-    public class QuadraticBezier
+    public class QuadraticBezier:IGraph
     {
         #region 构造器
         /// <summary>
@@ -34,6 +34,11 @@ namespace XiaoFeng.Ofd.Graph
         #endregion
 
         #region 属性
+        /// <summary>
+        /// ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
         /// <summary>
         /// 二次贝塞尔曲线的控制点
         /// </summary>

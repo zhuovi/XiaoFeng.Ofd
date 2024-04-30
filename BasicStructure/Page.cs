@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml;
 using XiaoFeng.Ofd.Actions;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
+using XiaoFeng.Ofd.Internal;
 using Action = XiaoFeng.Ofd.Actions.Action;
 
 /****************************************************************
@@ -24,7 +26,7 @@ namespace XiaoFeng.Ofd.BasicStructure
     /// <para>详情说明 见图 <see langword="13"/> ，见表 <see langword="12"/> </para>
     /// </summary>
     [XmlPath("Doc_{0}/Pages/Page_{1}/Content.xml")]
-    public class Page
+    public class Page:XmlEntity<Page>
     {
         #region 构造器
         /// <summary>

@@ -46,7 +46,11 @@ namespace XiaoFeng.Ofd.CompositeObject
         #endregion
 
         #region 方法
-
+        ///<inheritdoc/>
+        public override string ToString()
+        {
+            return $"{this.ResourceID}[{this.Boundary}]";
+        }
         #endregion
     }
 }

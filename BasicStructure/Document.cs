@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Actions;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
+using XiaoFeng.Ofd.Internal;
 using Action = XiaoFeng.Ofd.Actions.Action;
 
 /****************************************************************
@@ -25,7 +26,7 @@ namespace XiaoFeng.Ofd.BasicStructure
     /// <para>详情说明 见图 <see langword="5"/> ，见表 <see langword="5"/> </para>
     /// </summary>
     [XmlPath("Doc_{0}/Document.xml")]
-    public class Document
+    public class Document : XmlEntity<Document>
     {
         #region 构造器
         /// <summary>
@@ -159,7 +160,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <summary>
         /// 添加页树
         /// </summary>
-        public void AddPageTree()
+        internal void AddPageTree()
         {
             this.AddPageTree(new PageTree((uint)this.GetMaxUnitIDAndAdd(), (uint)this.Pages.Count));
         }
@@ -171,7 +172,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         {
             if (this.Pages == null || this.Pages.Count == 0 || this.Pages.Count <= index) return;
             this.Pages.RemoveAt(index);
-            for(var i = index; i < this.Pages.Count; i++)
+            for (var i = index; i < this.Pages.Count; i++)
             {
                 this.Pages[i].BaseLoc = $"Pages/Page-{i}/Content.xml";
             }

@@ -59,7 +59,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// 文档创建日期
         /// </summary>
         [XmlValueFormat("yyyy-MM-dd")]
-        public DateTime CreateDate { get; set; }
+        public DateTime CreationDate { get; set; }
         /// <summary>
         /// 文档最近修改日期
         /// </summary>
@@ -68,6 +68,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <summary>
         /// 文档分类
         /// </summary>
+        [XmlConverter(typeof(StringEnumConverter))] 
         public DocumentUsage DocUsage { get; set; } = DocumentUsage.Normal;
         /// <summary>
         /// 文档封面，此路径指向一个图片文件

@@ -40,6 +40,10 @@ namespace XiaoFeng.Ofd.Graph
         [XmlAttribute]
         [Required]
         public Position Start { get; set; }
+        /// <summary>
+        /// 图形结构
+        /// </summary>
+        public List<IGraph> Graphs { get; set; }
         #endregion
 
         #region 方法

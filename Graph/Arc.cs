@@ -21,7 +21,7 @@ namespace XiaoFeng.Ofd.Graph
     /// 圆弧
     /// <para>详情说明 见图 <see langword="56"/> ，见表 <see langword="42"/> </para>
     /// </summary>
-    public class Arc
+    public class Arc:IGraph
     {
         #region 构造器
         /// <summary>
@@ -34,6 +34,11 @@ namespace XiaoFeng.Ofd.Graph
         #endregion
 
         #region 属性
+        /// <summary>
+        /// ID
+        /// </summary>
+        [XmlAttribute]
+        public STID ID { get; set; }
         /// <summary>
         /// 圆弧的结束点，下个路径的起始点，不能与当前的绘制起始点为同一位置
         /// </summary>

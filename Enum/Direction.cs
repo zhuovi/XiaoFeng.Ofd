@@ -8,28 +8,33 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 20:36:16                            *
+*  Create Time : 2024-04-29 18:32:54                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
 namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
-    /// 多媒体类型
+    /// 方向（文字排列方向或阅读方向） 
+    /// <para>详情说明 见表 <see langword="47"/> </para>
     /// </summary>
-    public enum MultiMediaType
+    public enum Direction
     {
         /// <summary>
-        /// 图像
+        /// 0°
         /// </summary>
-        IMAGE = 0,
+        A = 0,
         /// <summary>
-        /// 视频
+        /// 90°
         /// </summary>
-        VIDEO = 1,
+        B = 90,
         /// <summary>
-        /// 音频
+        /// 180°
         /// </summary>
-        AUDIO = 2
+        C = 180,
+        /// <summary>
+        /// 270°
+        /// </summary>
+        D = 270
     }
 }

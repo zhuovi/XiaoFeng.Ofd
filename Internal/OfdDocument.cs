@@ -58,7 +58,7 @@ namespace XiaoFeng.Ofd.Internal
                 {
                     DocID = Guid.NewGuid().ToString("N"),
                     Title = "未命名文档",
-                    CreateDate = DateTime.Now,
+                    CreationDate = DateTime.Now,
                     CreatorVersion = version.ToString(),
                     Creator = "XiaoFeng.Ofd"
                 },

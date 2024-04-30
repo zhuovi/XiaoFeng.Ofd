@@ -6,6 +6,7 @@ using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.BasicStructure;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -46,6 +47,7 @@ namespace XiaoFeng.Ofd.Annots
         /// </summary>
         [XmlAttribute]
         [Required]
+        [XmlConverter(typeof(StringEnumConverter))]
         public AnnotType Type { get; set; }
         /// <summary>
         /// 注释创建者

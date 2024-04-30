@@ -4,6 +4,7 @@ using System.Text;
 using System.Xml.Serialization;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -39,6 +40,7 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 渐变绘制的方式，默认值为Direct
         /// </summary>
         [XmlAttribute]
+        [XmlConverter(typeof(StringEnumConverter))]
         public MapType MapType { get; set; } = MapType.Direct;
         /// <summary>
         /// 中心点连线上一个渐变区间所绘制的长度，当 MapType 的值不为Direct 时出现，默认值为中心点连线长度

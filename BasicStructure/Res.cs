@@ -6,6 +6,7 @@ using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.CompositeObject;
 using XiaoFeng.Ofd.Fonts;
+using XiaoFeng.Ofd.Internal;
 using XiaoFeng.Ofd.PageDescription;
 
 /****************************************************************
@@ -25,7 +26,7 @@ namespace XiaoFeng.Ofd.BasicStructure
     /// <para>资源是绘制图元时所需数据(如绘制参数、颜色空间、字型、图像、音视频等)的集合。在页面中出现的资源数据内容都保存在容器的特定文件夹内，但其索引信息保存在资源文件中。一个文档可能包含一个或多个资源文件。资源根据其作用范围分为公共资源和贞资源。公共资源文件在文档根节点中进行指定，页资源文件在页对象中进行指定。</para>
     /// <para>详情说明 见图 <see langword="20"/> ，见表 <see langword="18"/> </para>
     /// </summary>
-    public class Res
+    public class Res:XmlEntity<Res>
     {
         #region 构造器
         /// <summary>

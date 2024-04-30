@@ -4,6 +4,7 @@ using System.Text;
 using System.Xml.Serialization;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -48,6 +49,7 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 线条连接样式，指定了两个线的结合时采用的样式
         /// </summary>
         [XmlAttribute]
+        [XmlConverter(typeof(StringEnumConverter))]
         public JoinType Join { get; set; } = JoinType.Miter;
         /// <summary>
         /// 线宽,非负浮点数,指定了路径绘制时线的宽度。由于某些设备不 能输出一个像素宽度的线,因此强制规定当线宽大于0时,无论多小都最少要绘制两个像素的宽度; 当线宽为0时,绘制一个像素的宽度。由于线宽0的定义与设备相关,所以不推荐使用线宽0。默认值为0.353mm
@@ -68,6 +70,7 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 线端点样式,枚举值,指定了一条线的端点样式
         /// </summary>
         [XmlAttribute]
+        [XmlConverter(typeof(StringEnumConverter))] 
         public CapStyle Cap { get; set; } = CapStyle.Butt;
         /// <summary>
         /// oin 为 Miter时小角度结合点长度的截断值,默认值为3.528。当Join 不等于Miter时该参数无效

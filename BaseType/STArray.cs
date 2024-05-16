@@ -46,7 +46,8 @@ namespace XiaoFeng.Ofd.BaseType
             var vals = value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             vals.Each(a =>
             {
-                if (a.IsFloat()) Values.Add(a.ToCast<float>());
+                //if (a.IsFloat()) Values.Add(a.ToCast<float>());
+                Values.Add(a);
             });
         }
         #endregion

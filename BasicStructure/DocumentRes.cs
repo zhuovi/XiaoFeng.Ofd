@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Text;
 using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
@@ -38,7 +39,28 @@ namespace XiaoFeng.Ofd.BasicStructure
         #endregion
 
         #region 方法
-
+        /// <summary>
+        /// 设置媒体数据
+        /// </summary>
+        /// <param name="prefix">路径前缀</param>
+        /// <param name="zip">文档流</param>
+        public void SetMultiMediaData(string prefix, ZipArchive zip)
+        {
+            if (this.MultiMedias == null || this.MultiMedias.Count == 0) return;
+            this.MultiMedias.Each(m =>
+            {
+                var entry = zip.GetEntry($"{prefix}{this.BaseLoc}/{m.MediaFile}");
+                if (entry != null)
+                {
+                    var file = entry.Open();
+                    var bytes = new byte[file.Length];
+                    file.Read(bytes, 0, bytes.Length);
+                    file.Close();
+                    file.Dispose();
+                    m.Bytes = bytes;
+                }
+            });
+        }
         #endregion
     }
 }

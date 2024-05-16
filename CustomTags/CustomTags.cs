@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using XiaoFeng.Ofd.Internal;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -20,7 +21,7 @@ namespace XiaoFeng.Ofd.CustomTags
     /// <para>外部系统或用户可以添加自定义的标记和信息，从而达到与其他系统、数据进行交互的日的并扩展应用。一个文档可以带有多个自定义标引。</para>
     /// <para>详情说明 见图 <see langword="82"/> ，见表 <see langword="63"/> </para>
     /// </summary>
-    public class CustomTags
+    public class CustomTags : XmlEntity<CustomTags>
     {
         #region 构造器
         /// <summary>

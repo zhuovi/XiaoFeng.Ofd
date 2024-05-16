@@ -15,7 +15,7 @@ using System.Text;
 namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
-    /// 文宇对象的粗细值；可选取值为100,200,300,4D0,5DD,600,700,800,900   默认值为400
+    /// 文字对象的粗细值；可选取值为100,200,300,400,500,600,700,800,900   默认值为400
     /// <para>详情说明 见表 <see langword="45"/> </para>
     /// </summary>
     public enum Weight

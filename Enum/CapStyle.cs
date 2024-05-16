@@ -19,8 +19,17 @@ namespace XiaoFeng.Ofd.Enum
     /// </summary>
     public enum CapStyle
     {
+        /// <summary>
+        /// 柄形
+        /// </summary>
         Butt = 0,
+        /// <summary>
+        /// 圆形
+        /// </summary>
         Round = 1,
+        /// <summary>
+        /// 方形
+        /// </summary>
         Square = 2
     }
 }

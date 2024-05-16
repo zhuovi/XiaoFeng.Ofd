@@ -42,12 +42,16 @@ namespace XiaoFeng.Ofd.Annots
         /// <summary>
         /// 参数值
         /// </summary>
-        [XmlCData]
+        [XmlText]
         public string Value { get; set; }
         #endregion
 
         #region 方法
-
+        ///<inheritdoc/>
+        public override string ToString()
+        {
+            return $"{this.Name + ":" + this.Value}";
+        }
         #endregion
     }
 }

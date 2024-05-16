@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Text;
+using System.Threading.Tasks;
 using XiaoFeng.IO;
 using XiaoFeng.Ofd.BasicStructure;
 using XiaoFeng.Ofd.Enum;
@@ -76,6 +77,11 @@ namespace XiaoFeng.Ofd.Internal
         /// </summary>
         public void SetSuccess() => this.Status = OfdStatus.SUCCESS;
         /// <summary>
+        /// 设置成功状态
+        /// </summary>
+        /// <returns></returns>
+        public async Task SetSuccessAsync() => await Task.Run(() => this.SetSuccess());
+        /// <summary>
         /// 设置错误信息
         /// </summary>
         /// <param name="message">错误信息</param>
@@ -86,6 +92,15 @@ namespace XiaoFeng.Ofd.Internal
             if (this.ErrorMessage == null) this.ErrorMessage = new List<string>();
             this.ErrorMessage.Add(message);
             return false;
+        }
+        /// <summary>
+        /// 设置错误信息
+        /// </summary>
+        /// <param name="message">错误信息</param>
+        /// <returns></returns>
+        public async Task<bool> SetErrorAsync(string message)
+        {
+            return await Task.FromResult(this.SetError(message)).ConfigureAwait(false);
         }
         #endregion
 

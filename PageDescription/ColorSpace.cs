@@ -52,7 +52,7 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 每个颜色通道所使用的位数，有效取值为1，2，4，8，16。默认为8
         /// </summary>
         [XmlAttribute]
-        public int BitsPerComponent { get; set; }
+        public int? BitsPerComponent { get; set; }
         /// <summary>
         /// 指向包内颜色配置文件
         /// </summary>

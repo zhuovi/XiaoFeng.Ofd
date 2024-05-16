@@ -95,7 +95,7 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 颜色透明度,在0~255之间取值。默认为255,表示完全不透明
         /// </summary>
         [XmlAttribute]
-        public int? Alpha { get; set; } = 255;
+        public int? Alpha { get; set; }
         /// <summary>
         /// 底纹填充，复杂颜色的一种。描述见8.3.3
         /// </summary>

@@ -8,28 +8,19 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 20:36:16                            *
+*  Create Time : 2024-05-09 10:11:00                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
 namespace XiaoFeng.Ofd.Enum
 {
     /// <summary>
-    /// 多媒体类型
+    /// 操作状态
     /// </summary>
-    public enum MultiMediaType
+    public enum OperatorStatus
     {
-        /// <summary>
-        /// 图像
-        /// </summary>
-        Image = 0,
-        /// <summary>
-        /// 视频
-        /// </summary>
-        Video = 1,
-        /// <summary>
-        /// 音频
-        /// </summary>
-        Audio = 2
+        CREATE=0,
+        READ=1,
+
     }
 }

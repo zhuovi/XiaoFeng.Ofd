@@ -58,6 +58,11 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// </summary>
         [Required]
         public Location MediaFile { get; set; }
+        /// <summary>
+        /// 资源数据
+        /// </summary>
+        [XmlIgnore]
+        public byte[] Bytes { get; set; }
         #endregion
 
         #region 方法

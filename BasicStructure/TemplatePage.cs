@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
 using XiaoFeng.Ofd.Enum;
+using XiaoFeng.Xml;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -26,11 +27,22 @@ namespace XiaoFeng.Ofd.BasicStructure
     {
         #region 构造器
         /// <summary>
-        /// 无参构造器
+        /// 初始化一个新实例
         /// </summary>
-        public TemplatePage()
+        public TemplatePage() { }
+        /// <summary>
+        /// 初始化一个新实例
+        /// </summary>
+        /// <param name="id">模板页的标识</param>
+        /// <param name="baseLoc">指向模板页内容描述文件</param>
+        /// <param name="name">模板页名称</param>
+        /// <param name="zOrder">模板页的默认图层类型</param>
+        public TemplatePage(STID id, Location baseLoc, string name = "", LayerType zOrder = LayerType.Background)
         {
-
+            this.ID = id;
+            this.BaseLoc = baseLoc;
+            this.Name = name;
+            this.ZOrder = zOrder;
         }
         #endregion
 
@@ -58,6 +70,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// 默认值 为Background
         /// </summary>
         [XmlAttribute]
+        [XmlConverter(typeof(StringEnumConverter))]
         public LayerType ZOrder { get; set; } = LayerType.Background;
         #endregion
 

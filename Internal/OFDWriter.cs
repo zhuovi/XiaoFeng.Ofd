@@ -134,8 +134,6 @@ namespace XiaoFeng.Ofd.Internal
 
             docStruct.DocumentRes = docRes;
 
-            
-
             this.Documents.Add(docStruct);
         }
         #endregion

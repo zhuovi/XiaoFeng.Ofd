@@ -113,6 +113,11 @@ namespace XiaoFeng.Ofd.PageDescription
         /// 图元对象的裁剪区域序列，采用对象空间坐标系，当存在多个 <see cref="Clip"/> 对象时，最终裁剪区为所有 <see cref="Clip"/> 区域的交集
         /// </summary>
         public List<Clip> Clips { get; set; }
+        /// <summary>
+        /// 混合模式
+        /// </summary>
+        [XmlAttribute]
+        public BlendMode? BlendMode { get; set; }
         #endregion
 
         #region 方法

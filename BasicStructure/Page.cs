@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml;
+using System.Xml.Serialization;
 using XiaoFeng.Ofd.Actions;
 using XiaoFeng.Ofd.Attributes;
 using XiaoFeng.Ofd.BaseType;
@@ -42,6 +43,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// <summary>
         /// 该页所使用的模板页。模板页的内容结构和普通页相同，定义在 <see cref="CommonData"/> 指定的XML文件中。一个页可以使用多个模板页。该节点使用时通过TemplateID来引用具体的模板，并通用 <see cref="PageTemplate.ZOrder"/> 属性来控制模板在页面中的呈现顺序，注：在模板页的内容描述中该属性无效
         /// </summary>
+        [XmlArrayItem("Template")]
         public List<PageTemplate> Template { get; set; }
         /// <summary>
         /// 定义该页面面区域的大小和位置，仅对该页有效。该节点不出现时则使用模板页中的定义，如果模板页不存在或模板页中没有定义页面区域，则使用文件 <see cref="CommonData"/> 中的定义

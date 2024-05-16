@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using XiaoFeng.Ofd.Internal;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -19,7 +20,7 @@ namespace XiaoFeng.Ofd.Annots
     /// <para>分页注释</para>
     /// <para>详情说明 见图 <see langword="81"/> ，见表 <see langword="61"/> </para>
     /// </summary>
-    public class PageAnnot
+    public class PageAnnot : XmlEntity<PageAnnot>
     {
         #region 构造器
         /// <summary>
@@ -33,7 +34,7 @@ namespace XiaoFeng.Ofd.Annots
 
         #region 属性
         /// <summary>
-        /// 分布注释文件集合
+        /// 分页注释文件集合
         /// </summary>
         [XmlArrayItem("Annot")]
         public List<Annot> Annots { get; set; }

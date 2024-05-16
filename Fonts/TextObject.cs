@@ -54,7 +54,7 @@ namespace XiaoFeng.Ofd.Fonts
         /// 是否勾边，默认值为 <see langword="false"/>
         /// </summary>
         [XmlAttribute]
-        public bool Stroke { get; set; }
+        public bool? Stroke { get; set; }
         /// <summary>
         /// 是否填充，默认值为 <see langword="true"/>
         /// </summary>
@@ -79,7 +79,7 @@ namespace XiaoFeng.Ofd.Fonts
         /// 文字对象的粗细值；可选取值为 100，200，300，400，500，600，700，800，900，默认值为400
         /// </summary>
         [XmlAttribute]
-        public int? Weight { get; set; } = 400;
+        public int? Weight { get; set; }
         /// <summary>
         /// 是否是斜体样式，默认值为 <see langword="false"/>
         /// </summary>

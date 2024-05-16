@@ -108,27 +108,27 @@ namespace XiaoFeng.Ofd.Fonts
         /// </summary>
         [XmlAttribute]
         [XmlConverter(typeof(StringEnumConverter))]
-        public FontCharset Charset { get; set; } = FontCharset.unicode;
+        public FontCharset? Charset { get; set; }
         /// <summary>
         /// 是否是带衬线字型，用于匹配替代代字型，默认值是false
         /// </summary>
         [XmlAttribute]
-        public bool Serif { get; set; }
+        public bool? Serif { get; set; }
         /// <summary>
         /// 是否是粗体字型，用于匹配替代字型，默认值是false
         /// </summary>
         [XmlAttribute]
-        public bool Bold { get; set; }
+        public bool? Bold { get; set; }
         /// <summary>
         /// 是否是斜体字型，用于匹配替代字型，默认值为false
         /// </summary>
         [XmlAttribute]
-        public bool Italic { get; set; }
+        public bool? Italic { get; set; }
         /// <summary>
         /// 是否是等宽字型，用于匹配替代字形，默认值为false
         /// </summary>
         [XmlAttribute]
-        public bool FixedWidth { get; set; }
+        public bool? FixedWidth { get; set; }
         /// <summary>
         /// 指向内嵌字形文件，嵌入字形文件应使用 OpenType 格式
         /// </summary>
@@ -155,7 +155,7 @@ namespace XiaoFeng.Ofd.Fonts
         /// <summary>
         /// 楷体
         /// </summary>
-        public static Font KaiTi(uint id) => new Font(id, "楷体", "楷体");
+        public static Font KaiTi(uint id) => new Font(id, "楷体", "Simsun");
         /// <summary>
         /// 希腊字体
         /// </summary>
@@ -184,7 +184,7 @@ namespace XiaoFeng.Ofd.Fonts
         ///<inheritdoc/>
         public override string ToString()
         {
-            return $"";
+            return $"{this.FamilyName}-{this.FontName}";
         }
         #endregion
     }

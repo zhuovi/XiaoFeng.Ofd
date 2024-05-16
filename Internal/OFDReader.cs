@@ -37,6 +37,8 @@ namespace XiaoFeng.Ofd.Internal
         #endregion
 
         #region 方法
+
+        #region 初始化
         /// <summary>
         /// 初始化
         /// </summary>
@@ -45,6 +47,7 @@ namespace XiaoFeng.Ofd.Internal
             if (!this.ReadOFD()) return;
             this.ReadDocument();
         }
+        #endregion
 
         #region 读取OFD文件
         /// <summary>
@@ -54,7 +57,7 @@ namespace XiaoFeng.Ofd.Internal
         bool ReadOFD()
         {
             string path = "OFD.xml";
-            var file =this.FileZip.GetEntry(path);
+            var file = this.FileZip.GetEntry(path);
             if (file == null)
             {
                 return this.SetError("入口文件读取出错.");
@@ -67,7 +70,7 @@ namespace XiaoFeng.Ofd.Internal
             this.Ofd = content.XmlToEntity<OFD>();
             if (this.Ofd == null)
                 return this.SetError("读取入口文件出错.");
-            if(this.Ofd.DocBody==null || this.Ofd.DocBody.Count == 0)
+            if (this.Ofd.DocBody == null || this.Ofd.DocBody.Count == 0)
                 return this.SetError("读取文档配置节点出错.");
             return true;
         }
@@ -81,7 +84,7 @@ namespace XiaoFeng.Ofd.Internal
             {
                 var structure = this.ReadDoc(body.DocRoot);
                 if (structure == null) return false;
-                
+
                 this.Documents.Add(structure);
             }
             return true;
@@ -134,7 +137,7 @@ namespace XiaoFeng.Ofd.Internal
             }
             Structure.DocumentRes = DocResData;
             //读取公共文档资源
-            var filePubRes = this.FileZip.GetEntry(path+ DocData.CommonData.FirstOrDefault().PublicRes.ToString());
+            var filePubRes = this.FileZip.GetEntry(path + DocData.CommonData.FirstOrDefault().PublicRes.ToString());
             if (filePubRes == null)
             {
                 this.SetError("文档公共资源文件读取出错.");
@@ -152,7 +155,7 @@ namespace XiaoFeng.Ofd.Internal
                 return null;
             }
             Structure.PublicRes = PublicResData;
-            
+
             //读取页面
             foreach (var p in DocData.Pages)
             {
@@ -177,7 +180,7 @@ namespace XiaoFeng.Ofd.Internal
             }
             return Structure;
         }
-        
+
         #endregion
 
         #endregion

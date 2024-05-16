@@ -174,7 +174,7 @@ namespace XiaoFeng.Ofd.BasicStructure
             this.Pages.RemoveAt(index);
             for (var i = index; i < this.Pages.Count; i++)
             {
-                this.Pages[i].BaseLoc = $"Pages/Page-{i}/Content.xml";
+                this.Pages[i].BaseLoc = $"Pages/Page_{i}/Content.xml";
             }
         }
         #endregion

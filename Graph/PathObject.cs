@@ -43,12 +43,12 @@ namespace XiaoFeng.Ofd.Graph
         /// 图形是否被勾边，默认值为true
         /// </summary>
         [XmlAttribute]
-        public bool Stroke { get; set; } = true;
+        public bool? Stroke { get; set; }
         /// <summary>
         /// 图形是否被填充，默认值为false
         /// </summary>
         [XmlAttribute]
-        public bool Fill { get; set; }
+        public bool? Fill { get; set; }
         /// <summary>
         /// 图形的填充规则，当Fill属性存在时出现，默认值为NonZero
         /// </summary>

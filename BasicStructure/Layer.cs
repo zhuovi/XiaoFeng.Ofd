@@ -59,7 +59,7 @@ namespace XiaoFeng.Ofd.BasicStructure
         /// </summary>
         [XmlAttribute]
         [XmlConverter(typeof(StringEnumConverter))]
-        public LayerType Type { get; set; } = LayerType.Body;
+        public LayerType? Type { get; set; }
         /// <summary>
         /// 图层的绘制参数，引用资源文件中定义的绘制参数标识
         /// </summary>

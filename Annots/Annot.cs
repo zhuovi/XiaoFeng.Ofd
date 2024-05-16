@@ -60,34 +60,37 @@ namespace XiaoFeng.Ofd.Annots
         /// </summary>
         [XmlAttribute]
         [Required]
-        public DateTime LastModDate { get; set; }
+        public DateTime? LastModDate { get; set; }
         /// <summary>
         /// 注释子类型
         /// </summary>
         [XmlAttribute]
         public string Subtype { get; set; }
+        /// <summary>
+        /// 表示该注释对象是否显示 默认值为 <see langword="true"/>
+        /// </summary>
         [XmlAttribute]
-        public bool Visible { get; set; }
+        public bool? Visible { get; set; }
         /// <summary>
         /// 对象的 <see cref="Remark"/> 信息是否随页面一起打印，默认值为 <see langword="true"/>
         /// </summary>
         [XmlAttribute]
-        public bool Print { get; set; }
+        public bool? Print { get; set; }
         /// <summary>
         /// 对象的 <see cref="Remark"/> 信息是否不随页面缩放而同步缩放，默认值为 <see langword="false"/>
         /// </summary>
         [XmlAttribute]
-        public bool NoZoom { get; set; }
+        public bool? NoZoom { get; set; }
         /// <summary>
         /// 对象有的 <see cref="Remark"/> 信息是否不随页面旋转而同步旋转，默认值为 <see langword="false"/>
         /// </summary>
         [XmlAttribute]
-        public bool NoRotate { get; set; }
+        public bool? NoRotate { get; set; }
         /// <summary>
         /// 对象的 <see cref="Remark"/> 信息是否不能被用户更改，默认值为 <see langword="true"/>
         /// </summary>
         [XmlAttribute]
-        public bool ReadOnly { get; set; }
+        public bool? ReadOnly { get; set; }
         /// <summary>
         /// 注释说明内容
         /// </summary>
@@ -95,7 +98,7 @@ namespace XiaoFeng.Ofd.Annots
         /// <summary>
         /// 注释的静态呈现效果，使用页面块定义来描述
         /// </summary>
-        public IPageBlock Appearance { get; set; }
+        public Appearance Appearance { get; set; }
         /// <summary>
         /// 注释参数集合
         /// </summary>

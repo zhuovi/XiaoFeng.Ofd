@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
+using XiaoFeng.Ofd.BaseType;
+using XiaoFeng.Ofd.BasicStructure;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -8,28 +11,41 @@ using System.Text;
 *  QQ : 7092734                                                 *
 *  Email : jacky@eelf.cn                                        *
 *  Site : www.eelf.cn                                           *
-*  Create Time : 2024-03-26 20:36:16                            *
+*  Create Time : 2024-05-15 15:29:34                            *
 *  Version : v 1.0.0                                            *
 *  CLR Version : 4.0.30319.42000                                *
 *****************************************************************/
-namespace XiaoFeng.Ofd.Enum
+namespace XiaoFeng.Ofd.Annots
 {
     /// <summary>
-    /// 多媒体类型
+    /// Appearance 类说明
     /// </summary>
-    public enum MultiMediaType
+    public class Appearance
     {
+        #region 构造器
         /// <summary>
-        /// 图像
+        /// 初始化一个新实例
         /// </summary>
-        Image = 0,
+        public Appearance()
+        {
+
+        }
+        #endregion
+
+        #region 属性
         /// <summary>
-        /// 视频
+        /// 区域
         /// </summary>
-        Video = 1,
+        [XmlAttribute]
+        public Box Boundary { get; set; }
         /// <summary>
-        /// 音频
+        /// 子节点
         /// </summary>
-        Audio = 2
+        public List<IPageBlock> PageBlocks { get; set; }
+        #endregion
+
+        #region 方法
+
+        #endregion
     }
 }

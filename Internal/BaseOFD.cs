@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,14 @@ namespace XiaoFeng.Ofd.Internal
         {
             this.FilePath = filePath;
             this.FileZip = new ZipArchive(System.IO.File.Open(filePath, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.ReadWrite, System.IO.FileShare.ReadWrite), ZipArchiveMode.Update, false, Encoding.UTF8);
+        }
+        /// <summary>
+        /// 初始化一个新实例
+        /// </summary>
+        /// <param name="stream">文件流</param>
+        public BaseOFD(Stream stream) : this()
+        {
+            this.FileZip = new ZipArchive(stream, ZipArchiveMode.Update, false, Encoding.UTF8);
         }
         #endregion
 

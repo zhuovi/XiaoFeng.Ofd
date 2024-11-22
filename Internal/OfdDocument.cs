@@ -56,6 +56,15 @@ namespace XiaoFeng.Ofd.Internal
                 this.CreateOfdAsync().ConfigureAwait(false);
             }
         }
+        /// <summary>
+        /// 打开 OFD 流
+        /// </summary>
+        /// <param name="stream">OFD 流</param>
+        public OFDDocument(Stream stream) : base(stream)
+        {
+            this.OperatorStatus = OperatorStatus.READ;
+            this.OpenOfdAsync().ConfigureAwait(false);
+        }
         #endregion
 
         #region 属性
@@ -212,23 +221,6 @@ namespace XiaoFeng.Ofd.Internal
             this.Ofd = ofdBytes.GetString().XmlToEntity<OFD>();
             if (this.Ofd == null)
                 return await this.SetErrorAsync("入口文件解析出错.");
-            if (this.Ofd.DocBody == null || this.Ofd.DocBody.Count == 0)
-                return await this.SetErrorAsync("读取文档配置节点出错.");
-            return await Task.FromResult(true);
-
-            var file = this.FileZip.GetEntry(path);
-            if (file == null)
-            {
-                return await this.SetErrorAsync("入口文件读取出错.");
-            }
-            var doc = file.Open();
-            var bytes = new byte[doc.Length];
-            await doc.ReadAsync(bytes, 0, bytes.Length).ConfigureAwait(false);
-            doc.Close();
-            var content = bytes.GetString();
-            this.Ofd = content.XmlToEntity<OFD>();
-            if (this.Ofd == null)
-                return await this.SetErrorAsync("读取入口文件出错.");
             if (this.Ofd.DocBody == null || this.Ofd.DocBody.Count == 0)
                 return await this.SetErrorAsync("读取文档配置节点出错.");
             return await Task.FromResult(true);

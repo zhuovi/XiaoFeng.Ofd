@@ -23,7 +23,7 @@
 	  <RepositoryUrl>https://github.com/zhuovi/XiaoFeng.Ofd</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageProjectUrl>https://www.eelf.cn</PackageProjectUrl>
-	  <PackageIconUrl>http://nuget.fayelf.com/x.png</PackageIconUrl>
+	  <PackageIconUrl>https://www.eelf.cn/x.png</PackageIconUrl>
 	  <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 	  <AssemblyOriginatorKeyFile>XiaoFeng.Ofd.snk</AssemblyOriginatorKeyFile>
 	  <PackageIcon>x.png</PackageIcon>

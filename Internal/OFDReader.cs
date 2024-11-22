@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using XiaoFeng.Ofd.BaseType;
@@ -88,6 +89,29 @@ namespace XiaoFeng.Ofd.Internal
                 this.Documents.Add(structure);
             }
             return true;
+        }
+        /// <summary>
+        /// 读取文件流
+        /// </summary>
+        /// <param name="path">文件路径</param>
+        /// <returns></returns>
+        byte[] ReadData(string path)
+        {
+            var file = this.FileZip.GetEntry(path);
+            if (file == null)
+                return Array.Empty<byte>();
+            /*var bytes = new byte[file.Length];
+            using(var stream = file.Open())
+            {
+                stream.Read(bytes, 0, bytes.Length);
+            }
+            return bytes;*/
+            var ms = new MemoryStream();
+            using (var stream = file.Open())
+            {
+                stream.CopyTo(ms);
+            }
+            return ms.ToArray();
         }
         /// <summary>
         /// 读取文档

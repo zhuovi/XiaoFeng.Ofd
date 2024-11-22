@@ -11,6 +11,8 @@ using System.IO;
 using XiaoFeng.Ofd.CustomTags;
 using XiaoFeng.Xml;
 using System.IO.Compression;
+using XiaoFeng.IO;
+using XiaoFeng.Ofd.Versions;
 
 /****************************************************************
 *  Copyright © (2024) www.eelf.cn All Rights Reserved.          *
@@ -27,13 +29,14 @@ namespace XiaoFeng.Ofd.Internal
     /// <summary>
     /// Ofd文档
     /// </summary>
-    public class OFDDocument:BaseOFD
+    public class OFDDocument : BaseOFD
     {
         #region 构造器
         /// <summary>
         /// 初始化一个新实例
         /// </summary>
-        public OFDDocument() {
+        public OFDDocument()
+        {
             this.OperatorStatus = OperatorStatus.CREATE;
             this.CreateOfdAsync().ConfigureAwait(false);
         }
@@ -43,9 +46,15 @@ namespace XiaoFeng.Ofd.Internal
         /// <param name="ofdPath">OFD 地址</param>
         public OFDDocument(string ofdPath) : base(ofdPath)
         {
-            this.FilePath = ofdPath;
-            this.OperatorStatus = OperatorStatus.READ;
-            this.OpenOfdAsync().ConfigureAwait(false);
+            if (FileHelper.Exists(ofdPath))
+            {
+                this.OperatorStatus = OperatorStatus.READ;
+                this.OpenOfdAsync().ConfigureAwait(false);
+            }
+            else
+            {
+                this.CreateOfdAsync().ConfigureAwait(false);
+            }
         }
         #endregion
 
@@ -54,6 +63,86 @@ namespace XiaoFeng.Ofd.Internal
         /// 操作状态
         /// </summary>
         private OperatorStatus OperatorStatus { get; set; }
+        /// <summary>
+        /// 文档数据信息
+        /// </summary>
+        public DocInfo DocumentInfo
+        {
+            get
+            {
+                if (this.Ofd == null)
+                    CreateOfdAsync().ConfigureAwait(false);
+                if (this.Ofd.DocBody == null || this.Ofd.DocBody.Count == 0)
+                    this.Ofd.DocBody = new List<DocBody>();
+                if (this.Ofd.DocBody.Count == 0)
+                {
+                    var version = Assembly.GetExecutingAssembly().GetName().Version;
+
+                    var docBody = new DocBody()
+                    {
+                        DocInfo = new DocInfo()
+                        {
+                            DocID = Guid.NewGuid().ToString("N"),
+                            Title = "未命名文档",
+                            CreationDate = DateTime.Now,
+                            CreatorVersion = version.ToString(),
+                            Creator = "XiaoFeng.Ofd",
+                            Author = "XiaoFeng.Ofd",
+                            Subject = "",
+                            Abstract = ""
+                        },
+                        DocRoot = "Doc_0/Document.xml"
+                    };
+                    this.Ofd.DocBody.Add(docBody);
+                }
+                if (this.Ofd.DocBody[0].DocInfo == null)
+                    this.Ofd.DocBody[0].DocInfo = new DocInfo
+                    {
+                        DocID = Guid.NewGuid().ToString("N"),
+                        Title = "未命名文档",
+                        CreationDate = DateTime.Now,
+                        CreatorVersion = SystemVersion.ToString(),
+                        Creator = "XiaoFeng.Ofd",
+                        Author = "XiaoFeng.Ofd",
+                        Subject = "",
+                        Abstract = ""
+                    };
+                return this.Ofd.DocBody[0].DocInfo;
+            }
+            set
+            {
+                if (this.Ofd == null)
+                    CreateOfdAsync().ConfigureAwait(false);
+                if (this.Ofd.DocBody == null || this.Ofd.DocBody.Count == 0)
+                    this.Ofd.DocBody = new List<DocBody>();
+                if (this.Ofd.DocBody.Count == 0)
+                {
+                    var version = Assembly.GetExecutingAssembly().GetName().Version;
+
+                    var docBody = new DocBody()
+                    {
+                        DocInfo = new DocInfo()
+                        {
+                            DocID = Guid.NewGuid().ToString("N"),
+                            Title = "未命名文档",
+                            CreationDate = DateTime.Now,
+                            CreatorVersion = version.ToString(),
+                            Creator = "XiaoFeng.Ofd",
+                            Author = "XiaoFeng.Ofd",
+                            Subject = "",
+                            Abstract = ""
+                        },
+                        DocRoot = "Doc_0/Document.xml"
+                    };
+                    this.Ofd.DocBody.Add(docBody);
+                }
+                this.Ofd.DocBody[0].DocInfo = value;
+            }
+        }
+        /// <summary>
+        /// 系统版本
+        /// </summary>
+        private System.Version SystemVersion => Assembly.GetExecutingAssembly().GetName().Version;
         #endregion
 
         #region 方法
@@ -65,8 +154,6 @@ namespace XiaoFeng.Ofd.Internal
         /// <returns></returns>
         async Task CreateOfdAsync()
         {
-            var version = Assembly.GetExecutingAssembly().GetName().Version;
-
             var docBody = new DocBody()
             {
                 DocInfo = new DocInfo()
@@ -74,12 +161,15 @@ namespace XiaoFeng.Ofd.Internal
                     DocID = Guid.NewGuid().ToString("N"),
                     Title = "未命名文档",
                     CreationDate = DateTime.Now,
-                    CreatorVersion = version.ToString(),
-                    Creator = "XiaoFeng.Ofd"
+                    CreatorVersion = SystemVersion.ToString(),
+                    Creator = "XiaoFeng.Ofd",
+                    Author = "XiaoFeng.Ofd",
+                    Subject = "",
+                    Abstract = ""
                 },
                 DocRoot = "Doc_0/Document.xml"
             };
-            var ofd = new OFD()
+            this.Ofd = new OFD()
             {
                 DocBody = new List<DocBody> { docBody }
             };
@@ -113,6 +203,19 @@ namespace XiaoFeng.Ofd.Internal
         async Task<bool> ReadOfdAsync()
         {
             string path = "OFD.xml";
+            var ofdBytes = this.ReadData(path);
+            if(ofdBytes==null) 
+                return await this.SetErrorAsync("入口文件读取出错.");
+            if(ofdBytes.Length==0)
+                return await this.SetErrorAsync("入口文件内容为空.");
+
+            this.Ofd = ofdBytes.GetString().XmlToEntity<OFD>();
+            if (this.Ofd == null)
+                return await this.SetErrorAsync("入口文件解析出错.");
+            if (this.Ofd.DocBody == null || this.Ofd.DocBody.Count == 0)
+                return await this.SetErrorAsync("读取文档配置节点出错.");
+            return await Task.FromResult(true);
+
             var file = this.FileZip.GetEntry(path);
             if (file == null)
             {
@@ -144,6 +247,29 @@ namespace XiaoFeng.Ofd.Internal
                 this.Documents.Add(structure);
             }
             return true;
+        }
+        /// <summary>
+        /// 读取文件流
+        /// </summary>
+        /// <param name="path">文件路径</param>
+        /// <returns></returns>
+        byte[] ReadData(string path)
+        {
+            var file = this.FileZip.GetEntry(path);
+            if (file == null)
+                return null;
+            /*var bytes = new byte[file.Length];
+            using(var stream = file.Open())
+            {
+                stream.Read(bytes, 0, bytes.Length);
+            }
+            return bytes;*/
+            var ms = new MemoryStream();
+            using (var stream = file.Open())
+            {
+                stream.CopyTo(ms);
+            }
+            return ms.ToArray();
         }
         /// <summary>
         /// 读取文档
@@ -243,12 +369,12 @@ namespace XiaoFeng.Ofd.Internal
             }
 
             //读取模板
-            if(DocData.CommonData!=null && DocData.CommonData.Count > 0)
+            if (DocData.CommonData != null && DocData.CommonData.Count > 0)
             {
                 var templatePages = DocData.CommonData.FirstOrDefault().TemplatePage;
-                if(templatePages!=null && templatePages.Count > 0)
+                if (templatePages != null && templatePages.Count > 0)
                 {
-                    foreach(var p in templatePages)
+                    foreach (var p in templatePages)
                     {
                         var page = this.FileZip.GetEntry(path + p.BaseLoc);
                         if (page == null)
@@ -294,7 +420,7 @@ namespace XiaoFeng.Ofd.Internal
             Structure.CustomTags = TagsData;
             //读取自定义标引内容
             var subpath = fileTags.FullName.Substring(0, fileTags.FullName.LastIndexOf("/") + 1);
-            foreach(var t in TagsData.Tags)
+            foreach (var t in TagsData.Tags)
             {
                 var fileTag = this.FileZip.GetEntry(subpath + t.FileLoc);
                 if (fileTag == null)
@@ -341,7 +467,7 @@ namespace XiaoFeng.Ofd.Internal
             Structure.Annotations = AnnotationsData;
             //读取分布注释
             subpath = fileAnnotations.FullName.Substring(0, fileAnnotations.FullName.LastIndexOf("/") + 1);
-            foreach(var a in AnnotationsData.Pages)
+            foreach (var a in AnnotationsData.Pages)
             {
                 var fileAnnot = this.FileZip.GetEntry(subpath + a.FileLoc);
                 if (fileAnnot == null)
@@ -422,7 +548,7 @@ namespace XiaoFeng.Ofd.Internal
                         file.Flush();
                         file.Close();
                         file.Dispose();
-                       
+
                     });
                 }
 
@@ -515,10 +641,16 @@ namespace XiaoFeng.Ofd.Internal
         }
         #endregion
 
+        #region 文档页
+        /// <summary>
+        /// 文档页
+        /// </summary>
         public List<Page> Pages
         {
             get { return this.Documents.First().Pages; }
         }
+        #endregion
+
         #endregion
     }
 }

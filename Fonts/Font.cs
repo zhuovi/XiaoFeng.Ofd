@@ -181,6 +181,26 @@ namespace XiaoFeng.Ofd.Fonts
         /// <param name="right">右边字型对象</param>
         /// <returns></returns>
         public static bool operator !=(Font left, Font right) => !(left == right);
+        /// <summary>
+        /// 是否相等
+        /// </summary>
+        /// <param name="other">另一个对象 <see cref="Font"/></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            return obj is Font loc && Equals(loc);
+        }
+        /// <summary>
+        /// 是否相等
+        /// </summary>
+        /// <param name="other">另一个对象 <see cref="Font"/></param>
+        /// <returns></returns>
+        public bool Equals(Font other) => this == other;
+        ///<inheritdoc/>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         ///<inheritdoc/>
         public override string ToString()
         {

@@ -109,6 +109,11 @@ namespace XiaoFeng.Ofd.BaseType
         {
             return new Location(v);
         }
+        ///<inheritdoc/>
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         #endregion
     }
 }

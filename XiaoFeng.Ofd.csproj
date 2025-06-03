@@ -28,7 +28,7 @@
 	  <AssemblyOriginatorKeyFile>XiaoFeng.Ofd.snk</AssemblyOriginatorKeyFile>
 	  <PackageIcon>x.png</PackageIcon>
 	  <PackageTags>XiaoFeng;FAYELF;XML;OFD;Signature;</PackageTags>
-	  <PackageReleaseNotes></PackageReleaseNotes>
+	  <PackageReleaseNotes>增加操作实例</PackageReleaseNotes>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
 	  <DelaySign>False</DelaySign>

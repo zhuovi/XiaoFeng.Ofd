@@ -110,9 +110,59 @@ Cake
 
 ## 用法实例
 
+```csharp
+//如果文件存在则直接读取，如果文件不存在则会创建一个新文件
+var ofd = new XiaoFeng.Ofd.Internal.OFDDocument(@"E:\\test.ofd");
+
+//文件信息
+var docInfo = ofd.DocumentInfo;
+
+//文件页
+var page = ofd.Pages[0];
+//文件区域
+var area = page.Area;
+//文件大小
+var size = area.PhysicalBox.Size;
+//文件页宽
+var width = size.Width;
+//文件页高
+var height = size.Height;
+
+//文件内容
+var content = page.Content;
+
+//文档
+var doc = ofd.Documents[0];
+//文件模板
+var templates = doc.TemplatePages;
+//自定义数据
+var customData = ofd.DocumentInfo.CustomDatas;
+
+//资源
+var res = doc.DocumentRes;
+//字体
+var fonts = res.Fonts;
+//颜色
+var colos = res.ColorSpaces;
+//媒体
+var medias = res.MultiMedias;
+
+//保存文件
+ofd.Save();
+```
+
 ### 读取器
 
+```csharp
+var ofd = new OFDReader(@"E:\\test.ofd");
+```
+
 ### 写入器
+
+
+```csharp
+var ofd = new OFDWriter(@"E:\\test.ofd");
+```
 
 ### 数字签章
 
